@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col text-white items-center">
+  <div id="start" class="flex flex-col text-white items-center">
     <div class="text-center my-7">
       <div class="text-4xl">
         William Wernert
