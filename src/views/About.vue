@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center justify-center">
     <div class="flex flex-col items-center justify-center my-10 img-wrapper">
-      <v-lazy-image :src="require('@/assets/img/full/_DSF4898.jpg')" :src-placeholder="require('@/assets/img/thumbs/_DSF4898.jpg')"/>
+      <v-lazy-image :src="require('@/assets/img/full/DSF4898.jpg')" :src-placeholder="require('@/assets/img/thumbs/DSF4898.jpg')"/>
       <div class="text-white font-light mt-2">Self Portrait - me, 2020</div>
     </div>
     <div class="text-white text-center">
