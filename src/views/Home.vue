@@ -2,21 +2,21 @@
   <div class="home">
     <div class="my-24 flex flex-col items-center justify-center">
       <div class="text-3xl font-bold text-white">PHOTOGRAPHY</div>
-      <div class="flex flex-row sm:flex-col">
-        <div class="flex flex-col sm:flex-row items-center justify-center content-center mx-2 sm:mx-0 mt-8 sm:mt-14">
-        <film-strip img="MTH4703.jpg" alt="Fall sky in Georgia" />
-        <film-strip img="DSF3482.jpg" alt="Lamar Building, Augusta, GA" :portrait="true" />
-        <film-strip img="MTH4273.jpg" alt="Mother and baby ducks" />
-        <film-strip img="DSF3532.jpg" alt="Boarded up drive-thru bank" />
-        <film-strip img="MTH4442.jpg" alt="Monochrome trees" />
-      </div>
-      <div class="flex flex-col sm:flex-row items-center justify-center content-center mx-2 sm:mx-0 mt-8">
-        <film-strip img="DSF5336.jpg" alt="Barely lit pillow on bed" />
-        <film-strip img="DSF5438.jpg" alt="Close up plants"/>
-        <film-strip img="DSF3448.jpg" alt="Light falling across stucco building" />
-        <film-strip img="DSF4762.jpg" alt="Buildings and light strip from below" />
-        <film-strip img="MG0855.jpg" alt="Flowers on branch" />
-      </div>
+      <div class="flex flex-row sm:flex-col ">
+        <div class="flex flex-col sm:flex-row items-center justify-center content-center mx-2 sm:mx-0 mt-8 sm:mt-14 transition-transform transform hover:scale-105">
+          <film-strip img="MTH4703.jpg" alt="Fall sky in Georgia" />
+          <film-strip img="DSF3482.jpg" alt="Lamar Building, Augusta, GA" :portrait="true" />
+          <film-strip img="MTH4273.jpg" alt="Mother and baby ducks" />
+          <film-strip img="DSF3532.jpg" alt="Boarded up drive-thru bank" />
+          <film-strip img="MTH4442.jpg" alt="Monochrome trees" />
+        </div>
+        <div class="flex flex-col sm:flex-row items-center justify-center content-center mx-2 sm:mx-0 mt-8 transition-transform transform hover:scale-105">
+          <film-strip img="DSF5336.jpg" alt="Barely lit pillow on bed" />
+          <film-strip img="DSF5438.jpg" alt="Close up plants"/>
+          <film-strip img="DSF3448.jpg" alt="Light falling across stucco building" />
+          <film-strip img="DSF4762.jpg" alt="Buildings and light strip from below" />
+          <film-strip img="MG0855.jpg" alt="Flowers on branch" />
+        </div>
       </div>
     </div>
     <div class="my-24 flex flex-col items-center justify-center">

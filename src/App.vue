@@ -39,7 +39,8 @@ export default {
     showModal: false,
     fullImg: '',
     altTag: '',
-    isPortrait: false
+    isPortrait: false,
+    colorSchemeString: ''
   }),
   beforeMount() {
     EventBus.$on('show-img-modal', (img, alt, portrait) => {
@@ -48,7 +49,30 @@ export default {
       this.altTag = alt
       this.isPortrait = portrait
     })
-  }
+  },
+  mounted () {
+    this.colorSchemeString = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? '-dark'
+      : ''
+
+    const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+    try {
+      darkMediaQuery.addEventListener('change', () => this.setFavicon())
+    } catch (e) {
+      try {
+        darkMediaQuery.addListener(() => this.setFavicon())
+      } catch (e) {}
+    }
+    this.setFavicon()
+  },
+  methods: {
+    setFavicon () {
+      window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? this.colorSchemeString = '-dark' : this.colorSchemeString = ''
+      const fav = document.getElementById('favicon')
+      fav.href = `/favicon/favicon${this.colorSchemeString}.png`
+    }
+  },
 }
 </script>
 
