@@ -1,6 +1,6 @@
 <template>
- <div class="bg-gray-900">
-    <div class="thumbnail my-3 sm:my-6 mx-4 sm:mx-2 cursor-pointer" @click="handleClick()">
+ <div class="film-bg">
+    <div class="thumbnail my-1 sm:my-3 mx-3 sm:mx-1 cursor-pointer" @click="handleClick()">
       <img :src="importImg()" :alt="alt" :class="[ portrait ? 'portrait' : '' ]" />
     </div>
  </div>
@@ -28,6 +28,10 @@ export default {
 </script>
 
 <style scoped lang="postcss">
+
+.film-bg {
+  background-color: #e27745ad;
+}
 
 .thumbnail {
   position: relative;
@@ -77,7 +81,7 @@ img {
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
   object-fit: cover;
-  filter: invert(1) brightness(90%);
+  filter: invert(1) brightness(85%) hue-rotate(330deg);
 }
 img.portrait {
   width: 100%;
