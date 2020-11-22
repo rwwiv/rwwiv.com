@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import VueHead from 'vue-head'
 import './plugins/fontawesome'
 import App from './App.vue';
 import router from './router';
@@ -18,6 +19,8 @@ Vue.component('fa-layers', FontAwesomeLayers)
 Vue.config.productionTip = false;
 
 const EventBus = new Vue();
+ 
+Vue.use(VueHead)
 
 new Vue({
   router,
