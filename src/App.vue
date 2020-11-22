@@ -25,7 +25,7 @@
             <router-link to="/resume">Resume</router-link>
           </div>
         </div>
-      <router-view/>
+        <router-view/>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="my-24 flex flex-col items-center justify-center">
+    <div class="mt-12 lg:mt-16 mb-24 flex flex-col items-center justify-center">
       <div class="text-3xl font-bold text-white">PHOTOGRAPHY</div>
       <div class="flex flex-row sm:flex-col ">
         <div class="flex flex-col sm:flex-row items-center justify-center content-center mx-2 sm:mx-0 mt-8 sm:mt-14 transition-transform transform hover:scale-105">
