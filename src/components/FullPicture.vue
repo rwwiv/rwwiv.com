@@ -88,7 +88,7 @@ export default {
 }
 
 .overlay {
-  opacity: 45%;
+  opacity: 0.45;
   background-color: white;
 }
 
