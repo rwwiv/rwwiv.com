@@ -1,6 +1,6 @@
 <template>
  <div class="film-bg">
-    <div class="thumbnail my-1 sm:my-3 mx-3 sm:mx-1 cursor-pointer" @click="handleClick()">
+    <div class="thumbnail my-1 sm:my-4 mx-4 sm:mx-1 cursor-pointer" @click="handleClick()">
       <img :src="importImg()" :alt="alt" :class="[ portrait ? 'portrait' : '' ]" />
     </div>
  </div>
