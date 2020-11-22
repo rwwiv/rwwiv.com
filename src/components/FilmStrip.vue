@@ -77,7 +77,7 @@ img {
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
   object-fit: cover;
-  filter: invert(1)
+  filter: invert(1) brightness(90%);
 }
 img.portrait {
   width: 100%;
