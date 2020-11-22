@@ -8,13 +8,15 @@
         @intersect="loading = true"
         @load="loading = false"
       />
-      <div class="overlay-fix w-full h-full p-5" v-if="loading">
-        <div class="w-full h-full overlay animate-pulse">
+      <transition name="overlay">
+        <div class="overlay-fix w-full h-full p-5" v-if="loading">
+        <div class="w-full h-full overlay">
           <div class="centered-text text-black text-6xl">
             ...
           </div>
         </div>
       </div>
+      </transition>
     </div>
   </floating-modal>
 </template>
@@ -97,5 +99,10 @@ export default {
   transform: translate(-50%,-50%);
 }
 
-
+.overlay-enter-active, .overlay-leave-active {
+  transition: opacity .5s ease;
+}
+.overlay-enter, .overlay-leave-to {
+  opacity: 0;
+}
 </style>
