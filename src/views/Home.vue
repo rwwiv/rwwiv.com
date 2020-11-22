@@ -15,7 +15,7 @@
         <film-strip img="DSF5438.jpg" alt="Close up plants"/>
         <film-strip img="DSF3448.jpg" alt="Light falling across stucco building" />
         <film-strip img="DSF4762.jpg" alt="Buildings and light strip from below" />
-        <film-strip img="MG_0855.jpg" alt="Flowers on branch" />
+        <film-strip img="MG0855.jpg" alt="Flowers on branch" />
       </div>
       </div>
     </div>
