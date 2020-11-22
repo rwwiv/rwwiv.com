@@ -1,18 +1,49 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="my-24 flex flex-col items-center justify-center">
+      <div class="text-3xl font-bold text-white">PHOTOGRAPHY</div>
+      <div class="flex flex-row sm:flex-col">
+        <div class="flex flex-col sm:flex-row items-center justify-center content-center mx-2 sm:mx-0 mt-8 sm:mt-14">
+        <film-strip img="_MTH4703.jpg" alt="Fall sky in Georgia" />
+        <film-strip img="_DSF3482.jpg" alt="Lamar Building, Augusta, GA" :portrait="true" />
+        <film-strip img="_MTH4273.jpg" alt="Mother and baby ducks" />
+        <film-strip img="_DSF3532.jpg" alt="Boarded up drive-thru bank" />
+        <film-strip img="_MTH4442.jpg" alt="Monochrome trees" />
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-center content-center mx-2 sm:mx-0 mt-8">
+        <film-strip img="_DSF5336.jpg" alt="Barely lit pillow on bed" />
+        <film-strip img="_DSF5438.jpg" alt="Close up plants"/>
+        <film-strip img="_DSF3448.jpg" alt="Light falling across stucco building" />
+        <film-strip img="_DSF4762.jpg" alt="Buildings and light strip from below" />
+        <film-strip img="_MG_0855.jpg" alt="Flowers on branch" />
+      </div>
+      </div>
+    </div>
+    <div class="my-24 flex flex-col items-center justify-center">
+      <div class="text-3xl font-bold text-white">PERSONAL DEV PROJECTS</div>
+      <code-block app-name="sysmon-web-manager (Sysmon remote management)" url="https://github.com/rwwiv/sysmon-web-manager" language="python" :code="sysmonCode" />
+      <code-block app-name="turma (Contrived Turing machine language compiler)" url="https://github.com/rwwiv/turma" language="kotlin" :code="turmaCode" />
+
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import CodeBlock from '../components/CodeBlock.vue';
+import FilmStrip from '../components/FilmStrip.vue';
+
+import sysmon from '../assets/code/sysmon-agent.txt'
+import turma from '../assets/code/turma.txt'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
+    FilmStrip,
+    CodeBlock
   },
+  data: () => ({
+    sysmonCode: sysmon,
+    turmaCode: turma
+  })
 };
 </script>

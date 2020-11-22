@@ -1,32 +1,80 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" >
+    <div id="wrapper" tabindex="0" @keydown.esc="showModal = false;" class="outline-none">
+      <transition name="modal">
+        <full-picture 
+          v-if="showModal" 
+          :index="1"
+          @close="showModal = false"
+          :img="fullImg"
+          :alt="altTag"
+          :is-portrait="isPortrait"
+        />
+      </transition>
+    
+      <div id="content" class="z-50">
+        <div id="nav">
+          <router-link to="/" class="text-5xl mt-3">RWWIV</router-link>
+          <div class="flex justify-center space-x-4 mt-1">
+            <router-link to="/about">About</router-link>
+            <a href="https://github.com/rwwiv" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/rwwiv/" target="_blank">LinkedIn</a>
+            <a href="https://www.upwork.com/o/profiles/users/~01be2089b2b24074bc/" target="_blank">UpWork</a>
+          </div>
+        </div>
+      <router-view/>
+      </div>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import { EventBus } from './main'
+
+import FullPicture from './components/FullPicture.vue'
+
+export default {
+  components: { FullPicture },
+  data: () => ({
+    showModal: false,
+    fullImg: '',
+    altTag: '',
+    isPortrait: false
+  }),
+  beforeMount() {
+    EventBus.$on('show-img-modal', (img, alt, portrait) => {
+      this.showModal = true
+      this.fullImg = img
+      this.altTag = alt
+      this.isPortrait = portrait
+    })
+  }
+}
+</script>
+
+<style lang="postcss">
+
+html {
+  background: black;
 }
 
 #nav {
-  padding: 30px;
+  @apply flex flex-col items-center w-full pt-4;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+#nav a {
+  font-weight: bold;
+  color: grey;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+#nav a.router-link-exact-active {
+  color: white;
+}
+
+.modal-enter-active, .modal-leave-active {
+  transition: opacity .15s ease;
+}
+.modal-enter, .modal-leave-to {
+  opacity: 0;
 }
 </style>
