@@ -15,7 +15,7 @@
       <div id="content" class="z-50">
         <div id="nav">
           <router-link to="/" class="text-5xl mt-3">RWWIV</router-link>
-          <div class="flex justify-center space-x-4 mt-2">
+          <div class="flex justify-center space-x-4 mt-1 text-lg">
             <router-link to="/about">About</router-link>
             <router-link to="/resume">Resume</router-link>
           </div>
