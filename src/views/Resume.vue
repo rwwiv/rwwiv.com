@@ -85,7 +85,7 @@
       <template slot="content">
         <div class="font-semibold text-xl">BS in Computer Science</div>
         <div>
-          Augsuta University
+          Augusta University
         </div>
         <div class="font-light text-gray-300">
           May 2019
@@ -109,7 +109,7 @@
           </ul>
           <ul class="w-full xs:w-1/2">
             <li><experience-dots :num="7">C#</experience-dots></li>
-            <li><experience-dots :num="9">Sprint Boot</experience-dots></li>
+            <li><experience-dots :num="9">Spring Boot</experience-dots></li>
             <li><experience-dots :num="7">Python</experience-dots></li>
             <li><experience-dots :num="6">MySQL</experience-dots></li>
             <li><experience-dots :num="4">Postgres</experience-dots></li>
