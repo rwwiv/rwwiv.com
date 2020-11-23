@@ -3,7 +3,7 @@
     <div class="mr-2 w-1/4 xs:w-1/3 text-right">
       <slot />
     </div>
-   <div class="flex flex-row w-3/4 xs:w-2/3">
+   <div class="flex flex-row w-3/4 xs:w-2/3 font-mono	">
       <div v-for="index in num" :key="index" class="font-extrabold">
         &bull;
       </div>
