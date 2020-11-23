@@ -104,11 +104,11 @@
             <li><experience-dots :num="3">React</experience-dots></li>
             <li><experience-dots :num="6">Angular</experience-dots></li>
             <li><experience-dots :num="8">Node.js</experience-dots></li>
-            <li><experience-dots :num="10">Kotlin</experience-dots></li>
-            <li><experience-dots :num="7">Java</experience-dots></li>
+            <li><experience-dots :num="7">C#</experience-dots></li>
           </ul>
           <ul class="w-full xs:w-1/2">
-            <li><experience-dots :num="7">C#</experience-dots></li>
+            <li><experience-dots :num="10">Kotlin</experience-dots></li>
+            <li><experience-dots :num="7">Java</experience-dots></li>
             <li><experience-dots :num="9">Spring Boot</experience-dots></li>
             <li><experience-dots :num="7">Python</experience-dots></li>
             <li><experience-dots :num="6">MySQL</experience-dots></li>
