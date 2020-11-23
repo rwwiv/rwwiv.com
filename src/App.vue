@@ -15,14 +15,15 @@
       <div id="content" class="z-50">
         <div id="nav">
           <router-link to="/" class="text-5xl mt-3">RWWIV</router-link>
-          <div class="flex justify-center space-x-4 mt-3">
-            <a href="https://github.com/rwwiv" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/rwwiv/" target="_blank">LinkedIn</a>
-            <a href="https://www.upwork.com/o/profiles/users/~01be2089b2b24074bc/" target="_blank">UpWork</a>
-          </div>
           <div class="flex justify-center space-x-4 mt-2">
             <router-link to="/about">About</router-link>
             <router-link to="/resume">Resume</router-link>
+          </div>
+          <div class="flex justify-center space-x-4 mt-4">
+            <a href="https://www.instagram.com/rwwiv/" target="_blank">Instagram</a>
+            <a href="https://github.com/rwwiv" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/rwwiv/" target="_blank">LinkedIn</a>
+            <a href="https://www.upwork.com/o/profiles/users/~01be2089b2b24074bc/" target="_blank">UpWork</a>
           </div>
         </div>
         <router-view/>
