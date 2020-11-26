@@ -1,6 +1,6 @@
 <template>
   <div id="start" class="flex flex-col text-white items-center">
-    <div class="text-center my-7">
+    <div class="text-center mt-12 mb-6">
       <div class="text-4xl">
         William Wernert
       </div>
