@@ -13,9 +13,9 @@
         Summary
       </template>
       <template slot="content">
-        I am constantly challenging myself to improve my development skills and explore new languages and frameworks. 
-        My current job has me primarily working in JavaScript on the frontend and Python on the backend. 
-        I am most familiar with Java/Kotlin for server-side applications and the Vue framework for client-side apps; 
+        I am constantly challenging myself to improve my development skills and explore new languages and frameworks.
+        My current job has me primarily working in JavaScript on the frontend and Python on the backend.
+        I am most familiar with Kotlin and Node.js for server-side applications and the Vue framework for client-side apps;
         but have no trouble working in whatever language or framework is thrown at me.
       </template>
     </resume-block>
@@ -34,14 +34,15 @@
         >
           <template slot="experience">
             <div class="mt-4">
-              Worked as part of a team to bring a new, container-based version of the product to release. As part of this:
-              <ul class="list-disc">
+                Worked as part of a team to bring a new, container-based version of the product to release. As part of this:              <ul class="list-disc">
                 <li class="ml-5">
-                  Introduced automated E2E testing to the project via the Cypress testing framework and pioneered its use among the team. 
+                  Introduced automated E2E testing to the project via the Cypress testing framework and pioneered its use among the team.
+                </li>
+                <li class="ml-5">
                   Added better error handling to and refactored several Python/Flask applications and shell components to improve stability of the overall product.
                 </li>
                 <li class="ml-5">
-                  Worked with the team to add new functionality to and improve extensibility of these apps and several other components, as well as the product's main Go application.
+                  Worked with the team to add new functionality to and improve extensibility of these apps and several other components, as well as the product’s main Go application.
                 </li>
               </ul>
             </div>
@@ -49,10 +50,21 @@
               Worked with founding members of the company on a product and company brand update. As part of this:
               <ul class="list-disc">
                 <li class="ml-5">
-                  Designed and built the initial version of company's new website using current web frameworks, namely Vue/Nuxt.
+                  Designed and built the company’s new website using current web frameworks, namely Vue/Nuxt.
+                </li>
+              </ul>
+            </div>
+            <div class="mt-4">
+              Introduced a beta machine learning tool to the product and created a ML framework for additional applications to utilize in the future. As part of this:
+              <ul class="list-disc">
+                <li class="ml-5">
+                  Created tooling in Python to train models using supervised learning in a repeatable and automated manner. This tooling was designed to be extensible for the addition of future models as needed.
                 </li>
                 <li class="ml-5">
-                  Designed the company's and product's new logos and several graphics used within the product.
+                  Wrote a Python application that used the trained models to predict anomalous activity in the product’s authorization logs.
+                </li>
+                <li class="ml-5">
+                  Ensured all code was adequately unit tested, and where appropriate, E2E tested.
                 </li>
               </ul>
             </div>
@@ -67,12 +79,29 @@
         >
           <template slot="experience">
             <div class="mt-4">
-              Worked with top executives to create a .NET Core reporting application for employee tenure on clients. 
-              As part of this project, designed queries to aggregate the information from an internal MySQL database; which my team was given special access to.
+              Worked with top executives to create a .NET Core reporting application for employee tenure on clients. As part of this:
+             <ul class="list-disc">
+               <li class="ml-5">
+                 Designed stored procedures to aggregate the information from an internal MySQL database.
+               </li>
+               <li class="ml-5">
+                 Wrote a .NET Core service to run these queries and generate an email to be sent to executives by the same service.
+               </li>
+             </ul>
             </div>
             <div class="mt-4">
-              As part of an agile team worked to rewrite a client's legacy desktop application as a full stack Spring Boot/Angular web app. 
-              All code written was 100% covered by unit tests.
+              As part of an agile team worked to rewrite a client’s legacy desktop application as a full stack Java/Angular web app. As part of this:
+              <ul class="list-disc">
+                <li class="ml-5">
+                  Wrote several Java (Spring Boot) microservices from scratch, as well as adding additional functionality and unit testing using Junit and Mockito to already existing microservice applications.
+                </li>
+                <li class="ml-5">
+                  Contributed to the creation of several frontend Angular components and their respective unit tests.
+                </li>
+                <li class="ml-5">
+                  All code personally contributed was 100% unit tested.
+                </li>
+              </ul>
             </div>
           </template>
         </employment-block>
@@ -100,19 +129,19 @@
         <div class="flex flex-col xs:flex-row">
           <ul class="w-full xs:w-1/2">
             <li><experience-dots :num="10">Javascript</experience-dots></li>
-            <li><experience-dots :num="9">Vue</experience-dots></li>
-            <li><experience-dots :num="3">React</experience-dots></li>
-            <li><experience-dots :num="6">Angular</experience-dots></li>
-            <li><experience-dots :num="8">Node.js</experience-dots></li>
-            <li><experience-dots :num="7">C#</experience-dots></li>
+            <li><experience-dots :num="9">Node.js</experience-dots></li>
+            <li><experience-dots :num="7">Vue</experience-dots></li>
+            <li><experience-dots :num="5">Angular</experience-dots></li>
+            <li><experience-dots :num="4">golang</experience-dots></li>
+            <li><experience-dots :num="6">C#</experience-dots></li>
           </ul>
           <ul class="w-full xs:w-1/2">
             <li><experience-dots :num="10">Kotlin</experience-dots></li>
             <li><experience-dots :num="7">Java</experience-dots></li>
-            <li><experience-dots :num="9">Spring Boot</experience-dots></li>
-            <li><experience-dots :num="7">Python</experience-dots></li>
-            <li><experience-dots :num="6">MySQL</experience-dots></li>
-            <li><experience-dots :num="4">Postgres</experience-dots></li>
+            <li><experience-dots :num="5">Spring Boot</experience-dots></li>
+            <li><experience-dots :num="9">Python</experience-dots></li>
+            <li><experience-dots :num="3">Tensorflow</experience-dots></li>
+            <li><experience-dots :num="5">MySQL</experience-dots></li>
           </ul>
         </div>
       </template>
