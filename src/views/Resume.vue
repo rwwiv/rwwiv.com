@@ -87,7 +87,7 @@
         >
           <template slot="experience">
             <div class="mt-4">
-              As part of an agile team worked to rewrite a client’s legacy desktop application as a full stack Java/Angular web app. As part of this:
+              As part of an agile team, worked to rewrite a client’s legacy desktop application as a full stack Java/Angular web app. As part of this:
               <ul class="list-disc">
                 <li class="ml-5">
                   Wrote and contributed to several Java (Spring Boot) microservices, which included unit testing using Junit and Mockito with 100% test coverage.                </li>
