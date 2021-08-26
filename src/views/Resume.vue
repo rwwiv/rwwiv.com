@@ -30,27 +30,35 @@
           location="Augusta, GA"
           start-date="June 2019"
           end-date="Present"
-          class="mb-12"
+          class="mb-8"
         >
           <template slot="experience">
             <div class="mt-4">
-                Worked as part of a team to bring a new, container-based version of the product to release. As part of this:              <ul class="list-disc">
+              Worked as part of a team to bring a new, container-based version of the product to release. As part of this:
+              <ul class="list-disc">
                 <li class="ml-5">
                   Introduced automated E2E testing to the project via the Cypress testing framework and pioneered its use among the team.
                 </li>
                 <li class="ml-5">
-                  Added better error handling to and refactored several Python/Flask applications and shell components to improve stability of the overall product.
+                  Significantly refactored the project’s installation and upgrade code, written in bash.
                 </li>
                 <li class="ml-5">
-                  Worked with the team to add new functionality to and improve extensibility of these apps and several other components, as well as the product’s main Go application.
+                  Added several Python scripts to further enhance approachability of the product.
+                </li>
+                <li class="ml-5">
+                  Refactored a legacy Python Flask applications for extensibility and performance.
                 </li>
               </ul>
             </div>
             <div class="mt-4">
-              Worked with founding members of the company on a product and company brand update. As part of this:
+              Worked with founding members of the company on a product and company branding update. As part of this:
               <ul class="list-disc">
                 <li class="ml-5">
-                  Designed and built the company’s new website using current web frameworks, namely Vue/Nuxt.
+                  Designed a new logo to be used by both the product and the company.
+                </li>
+                <li class="ml-5">
+                  Created and maintained a new website using more up-to-date frameworks and practices, namely using the Vue framework (through Nuxt) 
+                  and implementing a CI/CD pipeline which included a new staging site as part of a change approval process.
                 </li>
               </ul>
             </div>
@@ -58,7 +66,7 @@
               Introduced a beta machine learning tool to the product and created a ML framework for additional applications to utilize in the future. As part of this:
               <ul class="list-disc">
                 <li class="ml-5">
-                  Created tooling in Python to train models using supervised learning in a repeatable and automated manner. This tooling was designed to be extensible for the addition of future models as needed.
+                  Created extensible tooling in Python to train models using supervised learning in a repeatable and automated manner.
                 </li>
                 <li class="ml-5">
                   Wrote a Python application that used the trained models to predict anomalous activity in the product’s authorization logs.
@@ -79,27 +87,12 @@
         >
           <template slot="experience">
             <div class="mt-4">
-              Worked with top executives to create a .NET Core reporting application for employee tenure on clients. As part of this:
-             <ul class="list-disc">
-               <li class="ml-5">
-                 Designed stored procedures to aggregate the information from an internal MySQL database.
-               </li>
-               <li class="ml-5">
-                 Wrote a .NET Core service to run these queries and generate an email to be sent to executives by the same service.
-               </li>
-             </ul>
-            </div>
-            <div class="mt-4">
               As part of an agile team worked to rewrite a client’s legacy desktop application as a full stack Java/Angular web app. As part of this:
               <ul class="list-disc">
                 <li class="ml-5">
-                  Wrote several Java (Spring Boot) microservices from scratch, as well as adding additional functionality and unit testing using Junit and Mockito to already existing microservice applications.
-                </li>
+                  Wrote and contributed to several Java (Spring Boot) microservices, which included unit testing using Junit and Mockito with 100% test coverage.                </li>
                 <li class="ml-5">
-                  Contributed to the creation of several frontend Angular components and their respective unit tests.
-                </li>
-                <li class="ml-5">
-                  All code personally contributed was 100% unit tested.
+                  Contributed to the creation of several frontend Angular components and their respective unit tests, again with 100% coverage.
                 </li>
               </ul>
             </div>
