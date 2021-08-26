@@ -11,7 +11,7 @@
           :is-portrait="isPortrait"
         />
       </transition>
-    
+
       <div id="content" class="z-50">
         <div id="nav">
           <router-link to="/" class="text-5xl mt-3">RWWIV</router-link>
