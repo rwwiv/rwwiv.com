@@ -13,9 +13,9 @@
         Summary
       </template>
       <template slot="content">
-        I am constantly challenging myself to improve my development skills and explore new languages and frameworks.
-        My current job has me primarily working in JavaScript on the frontend and Python on the backend.
-        I am most familiar with Kotlin and Node.js for server-side applications and the Vue framework for client-side apps;
+        I am constantly challenging myself to improve my development skills and explore new languages and frameworks. 
+        My current job has me primarily working in Javascript (namely Vue.js) on the frontend, and Python/Go on the backend. 
+        I am also familiar with Kotlin and Node.js as backend languages, and have some experience with Angular for client-side apps; 
         but have no trouble working in whatever language or framework is thrown at me.
       </template>
     </resume-block>
