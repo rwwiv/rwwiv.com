@@ -43,12 +43,12 @@ export default {
 
 @media (min-width: 640px) {
   .thumbnail {
-  position: relative;
-  width: 6rem;
-  min-width: 6rem;
-  height: 6rem;
-  overflow: hidden;
-}
+    position: relative;
+    width: 6rem;
+    min-width: 6rem;
+    height: 6rem;
+    overflow: hidden;
+  }
 }
 
 @media (min-width: 768px) {

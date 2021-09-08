@@ -1,6 +1,6 @@
 <template>
   <floating-modal @close="$emit('close')">
-    <div :style="imgWidthCss" class="img-wrapper bg-white rounded-sm p-5">
+    <div :style="imgWidthCss" class="img-wrapper bg-white rounded-sm p-3">
       <v-lazy-image 
         :src="importFullImg()" 
         :src-placeholder="importThumb()" 
@@ -9,7 +9,7 @@
         @load="loading = false"
       />
       <transition name="overlay">
-        <div class="overlay-fix w-full h-full p-5" v-if="loading">
+        <div class="overlay-fix w-full h-full p-3" v-if="loading">
         <div class="w-full h-full overlay">
           <div class="centered-text text-black text-6xl">
             ...
