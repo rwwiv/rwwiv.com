@@ -11,10 +11,12 @@ import { importImage } from '../helpers/img'
 import { EventBus } from '../main'
 
 export default {
+  data: () => ({
+    portrait: false
+  }),
   props: {
     img: { type: String, default: '' },
     alt: { type: String, default: '' },
-    portrait: { type: Boolean, default: false }
   },
   methods: {
     importImg() {
@@ -23,6 +25,17 @@ export default {
     handleClick() {
       EventBus.$emit('show-img-modal', this.img, this.alt, this.portrait)
     }
+  },
+  async beforeMount () {
+    const img = new Image()
+    img.onload = () => {
+      let portrait = false
+      const ratio = img.width / img.height
+      portrait = ratio < 0.9 ? true : false
+      this.portrait = portrait
+    }
+    img.src = await importImage('thumbs', this.img)
+    await img.onload()
   }
 }
 </script>
@@ -83,6 +96,7 @@ img {
   object-fit: cover;
   filter: invert(1) brightness(85%) hue-rotate(330deg);
 }
+
 img.portrait {
   width: 100%;
   height: auto;

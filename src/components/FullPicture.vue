@@ -38,13 +38,9 @@ export default {
     isPortrait: { type: Boolean, default: false }
   },
   data: () => ({
-    loading: true
+    loading: true,
+    imgWidthCss: ''
   }),
-  computed: {
-    imgWidthCss() {
-      return this.isPortrait ? '--img-width: 50rem;' : '--img-width: 60rem;'
-    }
-  },
   methods: {
     importFullImg() {
       return importImage('full', this.img)
@@ -52,8 +48,28 @@ export default {
     importThumb() {
       return importImage('thumbs', this.img)
     }
+  },
+  async beforeMount() {
+    const img = new Image()
+    img.onload = () => {
+      let width = ''
+      const ratio = img.width / img.height
+      switch (true) {
+        case (ratio < 0.9):
+          width = '250px'
+          break;
+        case (ratio > 1.1):
+          width = '500px'
+          break;
+        default:
+          width = '375px'
+          break;
+      }
+      this.imgWidthCss = `--img-width: ${width}`
+    }
+    img.src = await importImage('thumbs', this.img)
+    await img.onload()
   }
-
 }
 </script>
 
@@ -69,9 +85,17 @@ export default {
           user-select: none; /* Non-prefixed version, currently
                                 supported by Chrome, Edge, Opera and Firefox */
 }
+
+
+@media (min-width: 940px) {
+  .img-wrapper {
+    width: calc(var(--img-width) * 3);
+  }
+}
+
 @media (min-width: 480px) {
   .img-wrapper {
-    width: var(--img-width);
+    width: calc(var(--img-width) * 2);
   }
 }
 
