@@ -42,12 +42,6 @@
                 <li class="ml-5">
                   Significantly refactored the project’s installation and upgrade code, written in bash.
                 </li>
-                <li class="ml-5">
-                  Added several Python scripts to further enhance the approachability of the product.
-                </li>
-                <li class="ml-5">
-                  Refactored a legacy Python Flask application for extensibility and performance.
-                </li>
               </ul>
             </div>
             <div class="mt-4">
