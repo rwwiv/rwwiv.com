@@ -7,6 +7,10 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>RESUME</title>
+</svelte:head>
+
 <div class="flex flex-col items-center">
 	<div class="text-center mb-6">
 		<div class="text-4xl">William Wernert</div>
@@ -15,10 +19,9 @@
 	<ResumeBlock title="Summary">
 		<div>
 			Experienced software engineer with a track record of delivering successful projects in various
-			tech stacks, including Python, Go, Vue, and Spring Boot. Proven ability to collaborate with
-			teams, introduce new technologies, and create automated testing processes. Specializes in
-			developing and deploying web applications, microservices, and machine learning-based tools.
-			Excited to bring my skills and experience to your software engineering team.
+			tech stacks including Python, Go, Vue, and Spring Boot. Specializes in developing and
+			deploying web applications, microservices, and machine learning-based tools. Excited to bring
+			my skills and experience to your software engineering team.
 		</div>
 	</ResumeBlock>
 	<ResumeBlock title="Work Experience">

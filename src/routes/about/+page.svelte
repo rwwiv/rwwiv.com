@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>ABOUT</title>
+</svelte:head>
+
 <div class="flex flex-col items-center justify-center">
 	<div class="flex flex-col items-center justify-center px-3 md:w-auto space-y-10">
 		<div class="flex flex-col items-center justify-center bg-white rounded-sm img-wrapper">

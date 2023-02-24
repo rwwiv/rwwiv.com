@@ -13,6 +13,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>RWWIV</title>
+</svelte:head>
+
 <div id="content" class="z-50">
 	<div id="nav">
 		<a href="/" class:active={$page.url.pathname === '/'} class="text-5xl mt-3">RWWIV</a>
