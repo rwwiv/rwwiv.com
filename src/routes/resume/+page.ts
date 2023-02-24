@@ -17,10 +17,10 @@ const LM: Employment = {
 	endDate: new Date(2023, 1),
 	experience: [
 		`Contributed to an open-source Django project template using cutting-edge libraries such as Vite, AlpineJs, and HTMX.`,
+		`Provided guidance to an intern working on a frontend component system for the open-source Django project.`,
 		`Collaborated in an agile team to engineer a web application for a health tech client, leveraging the aforementioned technologies and adhering to design documentation.`,
 		`Acted as a consultant and staff engineer for this client after being asked to stay on, and played an instrumental role in bringing the aforementioned application to market.`,
-		`Contributed to the development of a Python API wrapper for the EHR used by several projects at the company.`,
-		`Provided guidance to an intern working on a frontend component system for the open-source Django project.`
+		`Contributed to the development of a Python API wrapper for the EHR used by several projects at the company.`
 	]
 };
 
