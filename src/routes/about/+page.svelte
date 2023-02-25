@@ -32,9 +32,12 @@
 						This website! This site is built using Sveltekit for now, with a Go backend coming soon.
 						<br />
 						Check
-						<span class="underline hover:text-blue-400">
-							<a href="https://github.com/rwwiv/rwwiv.com">here </a>
-						</span>
+						<a
+							href="https://github.com/rwwiv/rwwiv.com"
+							class="underline hover:text-blue-400 cursor-pointer"
+						>
+							here
+						</a>
 						for the public repo!
 					</li>
 				</ul>
@@ -45,7 +48,10 @@
 					<li>
 						Building a street photography portfolio with my Fujifilm X-T3
 						<br />
-						Check this site's home page soon for some of my work!
+						Check
+						<a href="/" class="underline cursor-pointer hover:text-blue-400">
+							this site's home page
+						</a> soon for some of my work!
 					</li>
 					<li>Slowly (oh so slowly) learning film photography on a Canon AE-1</li>
 				</ul>
