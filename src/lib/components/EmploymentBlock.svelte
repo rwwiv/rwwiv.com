@@ -13,7 +13,7 @@
 		<div>
 			{employerName} - {location}
 		</div>
-		<div class="font-light text-gray-300">
+		<div class="font-light text-gray-600 dark:text-gray-300">
 			{startDate.toLocaleDateString('en-us', {
 				year: 'numeric',
 				month: 'short'

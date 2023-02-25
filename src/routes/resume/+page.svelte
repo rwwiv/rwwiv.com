@@ -41,7 +41,7 @@
 	<ResumeBlock title="Education">
 		<div class="font-semibold text-xl">{data.education.degree}</div>
 		<div>{data.education.university}</div>
-		<div class="font-light text-gray-300">
+		<div class="font-light text-gray-600 dark:text-gray-300">
 			{data.education.graduationDate.toLocaleDateString('en-us', {
 				year: 'numeric',
 				month: 'short'
