@@ -26,7 +26,7 @@
 						Currently working on an embedded programming project using Rust to create a wifi-enabled
 						plant moisture and light meter based on the ESP32-C3!
 						<br />
-						Check back soon for more updates on that soon.
+						Check back soon for more on that project.
 					</li>
 					<li class="text-sm">
 						This website! This site is built using Sveltekit for now, with a Go backend coming soon.
