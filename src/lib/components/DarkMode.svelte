@@ -13,22 +13,26 @@
 				: window.document.documentElement.classList.remove('dark');
 		}
 	};
-
-	if (browser) {
-		function setDarkMode() {
-			localStorage.getItem('color-theme') === 'dark' ||
-			(!('color-theme' in localStorage) && darkModePreference.matches)
-				? window.document.documentElement.classList.add('dark')
-				: window.document.documentElement.classList.remove('dark');
-		}
-
-		const darkModePreference = window.matchMedia('(prefers-color-scheme: dark)');
-
-		setDarkMode();
-
-		darkModePreference.addEventListener('change', () => setDarkMode());
-	}
 </script>
+
+<svelte:head>
+	<script>
+		if (window) {
+			function setDarkMode() {
+				localStorage.getItem('color-theme') === 'dark' ||
+				(!('color-theme' in localStorage) && darkModePreference.matches)
+					? window.document.documentElement.classList.add('dark')
+					: window.document.documentElement.classList.remove('dark');
+			}
+
+			const darkModePreference = window.matchMedia('(prefers-color-scheme: dark)');
+
+			setDarkMode();
+
+			darkModePreference.addEventListener('change', () => setDarkMode());
+		}
+	</script>
+</svelte:head>
 
 <div class="flex flex-col items-center space-y-3 select-none">
 	<div
