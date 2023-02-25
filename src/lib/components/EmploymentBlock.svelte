@@ -3,31 +3,36 @@
 	export let employerName: string;
 	export let location: string;
 	export let startDate: Date;
-	export let endDate: Date | string = 'Present';
+	export let endDate: Date | string = "Present";
+	export let tech: string[];
 	export let experience: string[];
 </script>
 
 <div>
-	<div class="flex flex-col text-left">
-		<div class="font-semibold text-xl">{jobTitle}</div>
-		<div>
-			{employerName} - {location}
+	<div class="flex flex-col text-left space-y-1">
+		<div class="font-semibold text-xl">{jobTitle} @ {employerName} - {location}</div>
+		<div class="">
+			{#each tech as t, i}
+				{t}
+				{#if i != tech.length - 1}&bullet;&nbsp;{/if}
+			{/each}
 		</div>
-		<div class="font-light text-gray-600 dark:text-gray-300">
-			{startDate.toLocaleDateString('en-us', {
-				year: 'numeric',
-				month: 'short'
+		<div class="text-sm text-gray-600 dark:text-gray-300">
+			{startDate.toLocaleDateString("en-us", {
+				year: "numeric",
+				month: "short",
 			})}
 			-
-			{#if typeof endDate === 'string'}
+			{#if typeof endDate === "string"}
 				{endDate}
 			{:else}
-				{endDate.toLocaleDateString('en-us', {
-					year: 'numeric',
-					month: 'short'
+				{endDate.toLocaleDateString("en-us", {
+					year: "numeric",
+					month: "short",
 				})}
 			{/if}
 		</div>
+
 		<ul class="space-y-2 list-disc ml-4 mt-4">
 			{#each experience as exp}
 				<li>{exp}</li>

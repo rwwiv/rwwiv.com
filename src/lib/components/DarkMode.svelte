@@ -1,16 +1,16 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { browser } from "$app/environment";
 	const toggleTheme = () => {
-		const isDark = window.document.documentElement.classList.toggle('dark');
-		localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+		const isDark = window.document.documentElement.classList.toggle("dark");
+		localStorage.setItem("color-theme", isDark ? "dark" : "light");
 	};
 
 	const useSystemColor = () => {
-		localStorage.removeItem('color-theme');
+		localStorage.removeItem("color-theme");
 		if (browser) {
-			window.matchMedia('(prefers-color-scheme: dark)').matches
-				? window.document.documentElement.classList.add('dark')
-				: window.document.documentElement.classList.remove('dark');
+			window.matchMedia("(prefers-color-scheme: dark)").matches
+				? window.document.documentElement.classList.add("dark")
+				: window.document.documentElement.classList.remove("dark");
 		}
 	};
 </script>
@@ -19,17 +19,17 @@
 	<script>
 		if (window) {
 			function setDarkMode() {
-				localStorage.getItem('color-theme') === 'dark' ||
-				(!('color-theme' in localStorage) && darkModePreference.matches)
-					? window.document.documentElement.classList.add('dark')
-					: window.document.documentElement.classList.remove('dark');
+				localStorage.getItem("color-theme") === "dark" ||
+				(!("color-theme" in localStorage) && darkModePreference.matches)
+					? window.document.documentElement.classList.add("dark")
+					: window.document.documentElement.classList.remove("dark");
 			}
 
-			const darkModePreference = window.matchMedia('(prefers-color-scheme: dark)');
+			const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 
 			setDarkMode();
 
-			darkModePreference.addEventListener('change', () => setDarkMode());
+			darkModePreference.addEventListener("change", () => setDarkMode());
 		}
 	</script>
 </svelte:head>

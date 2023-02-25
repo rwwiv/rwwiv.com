@@ -1,7 +1,20 @@
 <script>
-	import Footer from '$lib/components/Footer.svelte';
-	import Nav from '$lib/components/Nav.svelte';
-	import '../app.css';
+	import { browser } from "$app/environment";
+	import { page } from "$app/stores";
+	import Footer from "$lib/components/Footer.svelte";
+	import Nav from "$lib/components/Nav.svelte";
+	import { webVitals } from "$lib/vitals";
+	import "../app.css";
+
+	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
+
+	$: if (browser && analyticsId) {
+		webVitals({
+			path: $page.url.pathname,
+			params: $page.params,
+			analyticsId,
+		});
+	}
 </script>
 
 <svelte:head>

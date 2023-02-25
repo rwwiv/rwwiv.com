@@ -1,8 +1,8 @@
 <script lang="ts">
-	import EmploymentBlock from '$lib/components/EmploymentBlock.svelte';
-	import ExperienceDots from '$lib/components/ExperienceDots.svelte';
-	import ResumeBlock from '$lib/components/ResumeBlock.svelte';
-	import type { PageData } from './$types';
+	import EmploymentBlock from "$lib/components/EmploymentBlock.svelte";
+	import ExperienceDots from "$lib/components/ExperienceDots.svelte";
+	import ResumeBlock from "$lib/components/ResumeBlock.svelte";
+	import type { PageData } from "./$types";
 
 	export let data: PageData;
 </script>
@@ -13,17 +13,19 @@
 
 <div class="flex flex-col items-center">
 	<div class="text-center mb-6">
-		<div class="text-4xl text-red-400">DRAFT</div>
-		<br />
+		<!--
+			<div class="text-4xl text-red-400">DRAFT</div>
+			<br />
+		-->
 		<div class="text-4xl">William Wernert</div>
-		<div class="text-lg font-light">Full Stack Developer</div>
+		<div class="text-lg font-light">Full Stack Engineer</div>
 	</div>
 	<ResumeBlock title="Summary">
 		<div>
 			Experienced software engineer with a track record of delivering successful projects in various
-			tech stacks including Python, Go, Vue, and Spring Boot. Specializes in developing and
-			deploying web applications, microservices, and machine learning-based tools. Excited to bring
-			my skills and experience to your software engineering team.
+			tech stacks including Python Django, Go, Vue.js, and Java Spring Boot. Specializes in
+			developing and deploying web applications, micro-services, and machine learning-based tools.
+			Excited to bring my skills and experience to your software engineering team.
 		</div>
 	</ResumeBlock>
 	<ResumeBlock title="Work Experience">
@@ -35,19 +37,46 @@
 					location={e.location}
 					startDate={e.startDate}
 					endDate={e.endDate}
+					tech={e.tech}
 					experience={e.experience}
 				/>
 			{/each}
 		</div>
 	</ResumeBlock>
 	<ResumeBlock title="Education">
-		<div class="font-semibold text-xl">{data.education.degree}</div>
-		<div>{data.education.university}</div>
-		<div class="font-light text-gray-600 dark:text-gray-300">
-			{data.education.graduationDate.toLocaleDateString('en-us', {
-				year: 'numeric',
-				month: 'short'
-			})}
+		<div class="flex flex-col space-y-1">
+			<div class="font-semibold text-xl">{data.education.degree}</div>
+			<div>{data.education.university}</div>
+			<div class="text-sm text-gray-600 dark:text-gray-300">
+				{data.education.graduationDate.toLocaleDateString("en-us", {
+					year: "numeric",
+					month: "short",
+				})}
+			</div>
+		</div>
+	</ResumeBlock>
+	<ResumeBlock title="Personal Projects">
+		<ul class="list-disc space-y-1">
+			{#each data.projects as project}
+				<li class="ml-4">{project}</li>
+			{/each}
+		</ul>
+	</ResumeBlock>
+	<ResumeBlock title="Volunteer Work">
+		<div class="flex flex-col space-y-1">
+			{#each data.volunteerRoles as v}
+				<div class="font-semibold text-xl">{v.group}</div>
+				<div>
+					{v.role}
+				</div>
+				<div class="text-sm text-gray-600 dark:text-gray-300">
+					{v.startYear.toLocaleDateString("en-us", { year: "numeric" })}
+					-
+					{#if v.endYear}
+						{v.endYear.toLocaleDateString("en-us", { year: "numeric" })}
+					{:else}Present{/if}
+				</div>
+			{/each}
 		</div>
 	</ResumeBlock>
 	<ResumeBlock title="Languages &amp; Frameworks">
