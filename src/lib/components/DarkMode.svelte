@@ -30,11 +30,6 @@
 	}
 </script>
 
-<svelte:head>
-	<script>
-	</script>
-</svelte:head>
-
 <div class="flex flex-col items-center space-y-3 select-none">
 	<div
 		on:click={toggleTheme}
