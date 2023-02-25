@@ -21,10 +21,10 @@
 	}
 
 	#nav a {
-		@apply font-bold text-gray-500;
+		@apply font-bold text-gray-500 hover:text-gray-600;
 	}
 
 	#nav a.active {
-		@apply text-black dark:text-white;
+		@apply text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300;
 	}
 </style>

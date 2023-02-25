@@ -15,7 +15,7 @@
 				height="350px"
 				width="350px"
 			/>
-			<div class="h-[80px]" />
+			<div class="h-[75px]" />
 		</div>
 		<div class="flex flex-col space-y-6 w-[20em] mb-12">
 			<h1 class="text-3xl">Current Projects</h1>
@@ -23,17 +23,17 @@
 				<div class="text-xl font-bold">Software Engineering</div>
 				<ul class="list-disc space-y-2 ml-3 text-sm">
 					<li class="text-sm">
-						Currently working on an embedded programming project using Rust to create a wifi-enabled
-						plant moisture and light meter based on the ESP32-C3!
+						Learning embedded programming and Rust by creating a wifi-enabled plant moisture and
+						light meter based on the ESP32-C3!
 						<br />
 						Check back soon for more on that project.
 					</li>
 					<li class="text-sm">
 						This website! This site is built using Sveltekit for now, with a Go backend coming soon.
 						<br />
-						Check my
-						<span class="underline hover:text-red-400">
-							<a href="https://github.com/rwwiv">Github </a>
+						Check
+						<span class="underline hover:text-blue-400">
+							<a href="https://github.com/rwwiv/rwwiv.com">here </a>
 						</span>
 						for the public repo!
 					</li>
