@@ -13,7 +13,7 @@
 
 <div class="flex flex-col items-center">
 	<div class="text-center mb-6">
-		<div class="text-4xl text-red-400">WIP</div>
+		<div class="text-4xl text-red-400">DRAFT</div>
 		<br />
 		<div class="text-4xl">William Wernert</div>
 		<div class="text-lg font-light">Full Stack Developer</div>
