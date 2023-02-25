@@ -47,7 +47,7 @@
 						<br />
 						Check this site's home page soon for some of my work!
 					</li>
-					<li>Slowly learning film photography</li>
+					<li>Slowly (oh so slowly) learning film photography on a Canon AE-1</li>
 				</ul>
 			</div>
 		</div>
