@@ -55,12 +55,12 @@ const SOS: Employment = {
 		which reduced release time from 1-2 weeks to half a day`,
 		`Architected a Python-based middleware between the primary Go web app and defined local and remote API services for extensible security data analysis,
 		which removed a third-party dependency from the project and allowed for greater product flexibility`,
-		`Streamlined the installation and upgrade code of the product, written in Bash,
-		allowing for a 20% decrease in time spent on further modifications`,
-		`Redesigned the product and company logo as part of a branding update initiative with founding members,
-		which contributed to several instrumental support contracts being brought to the company`,
-		`Developed and maintained a new website using Nuxt as part of this initiative, and created a CI/CD pipeline that included a staging site for change approval.
-		This system allowed for a 200% increase in the velocity of the project and significantly more ownership of the content by those involved`,
+		// `Streamlined the installation and upgrade code of the product, written in Bash,
+		// allowing for a 20% decrease in time spent on further modifications`,
+		// `Redesigned the product and company logo as part of a branding update initiative with founding members,
+		// which contributed to several instrumental support contracts being brought to the company`,
+		// `Developed and maintained a new website using Nuxt as part of this initiative, and created a CI/CD pipeline that included a staging site for change approval.
+		// This system allowed for a 200% increase in the velocity of the project and significantly more ownership of the content by those involved`,
 	],
 };
 
