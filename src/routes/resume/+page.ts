@@ -53,7 +53,7 @@ const SOS: Employment = {
 		bringing it from beta to release on a highly accelerated timeline`,
 		`Automated end-to-end testing of the product via the Cypress testing framework and served as an advocate for its adoption among team members,
 		which reduced release time from 1-2 weeks to half a day`,
-		`Architected a Python middleware between the primary Go web app and defined local and remote API services for extensible security data analysis,
+		`Architected a Python middleware between the primary Go web app and user-defined local and remote API services for extensible security data analysis,
 		which removed a third-party dependency from the project and allowed for greater product flexibility`,
 		// `Streamlined the installation and upgrade code of the product, written in Bash,
 		// allowing for a 20% decrease in time spent on further modifications`,
