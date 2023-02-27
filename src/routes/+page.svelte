@@ -1,6 +1,6 @@
 <script>
 	// @ts-ignore
-	import underConstruction from "$lib/assets/XT35055.jpg?w=400&webp";
+	import underConstruction from "$lib/assets/XT35055.jpg?w=400";
 </script>
 
 <div class="flex flex-col items-center justify-center">
