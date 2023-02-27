@@ -47,12 +47,14 @@ const SOS: Employment = {
 	endDate: new Date(2022, 1),
 	tech: ["Python", "Go", "Javascript", "Vue.js", "Bash", "Docker", "Redis"],
 	experience: [
-		`Introduced a beta machine learning-based log anomaly detection tool to the product and established an extensible ML framework for future applications,
-		which led to a 50% higher adoption rate among users`,
+		`Developed both an extensible machine learning framework built on Tensorflow and a service app that used this framework for AI-assisted log analysis,
+		introducing the first machine learning capability to the product which led to a 50% higher adoption rate among users`,
 		`Played an instrumental role in launching a new Docker-based version of a Linux distribution product,
 		bringing it from beta to release on a highly accelerated timeline`,
 		`Automated end-to-end testing of the product via the Cypress testing framework and served as an advocate for its adoption among team members,
 		which reduced release time from 1-2 weeks to half a day`,
+		`Architected a Python-based middleware between the primary Go web app and defined local and remote API services for extensible security data analysis,
+		which removed a third party dependency from the project and allowed for greater product flexibility`,
 		`Streamlined the installation and upgrade code of the product, written in Bash,
 		allowing for a 20% decrease in time spent on further modifications`,
 		`Redesigned the product and company logo as part of a branding update initiative with founding members,
@@ -72,8 +74,8 @@ const RSI: Employment = {
 	experience: [
 		`Worked in an agile team to rewrite a client's legacy desktop application as a full stack Java/Angular web app,
 		reducing the time spent in the app by its users by 75%`,
-		`Engineered and contributed to several Java (Spring Boot) micro-services, including developing unit tests using Junit and Mockito with 100% test coverage,
-		creating a 50% increase in sprint velocity`,
+		`Engineered and contributed to several Java (Spring Boot) microservices, including developing unit tests using Junit and Mockito with 100% test coverage,
+		which allowed for highly reliable deployments of these services`,
 	],
 };
 
