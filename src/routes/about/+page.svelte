@@ -1,3 +1,8 @@
+<script>
+	// @ts-ignore
+	import me from "$lib/assets/me.jpg?h=350";
+</script>
+
 <svelte:head>
 	<title>ABOUT</title>
 </svelte:head>
@@ -8,13 +13,7 @@
 			id="polaroid"
 			class="flex flex-col items-center justify-center rounded-sm img-wrapper bg-black dark:bg-white"
 		>
-			<img
-				src="$lib/assets/me.jpg"
-				alt="Self portrait"
-				class="mt-4 px-3 h-full"
-				height="350px"
-				width="350px"
-			/>
+			<img src={me} alt="Self portrait" class="mt-4 px-3" />
 			<div class="h-[75px]" />
 		</div>
 		<div class="flex flex-col space-y-6 w-[20em] mb-12">
