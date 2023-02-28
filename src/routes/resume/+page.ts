@@ -45,7 +45,7 @@ const SOS: Employment = {
 	location: "Remote",
 	startDate: new Date(2019, 5),
 	endDate: new Date(2022, 1),
-	tech: ["Python", "Go", "Javascript", "Vue.js", "Tensorflow", "Docker", "Redis"],
+	tech: ["Python", "Go", "Javascript", "Vue.js", "Cypress", "Tensorflow", "Docker"],
 	experience: [
 		`Developed both an extensible machine learning framework built on Tensorflow and a service app that used this framework for AI-assisted log analysis,
 		introducing the first machine learning capability to the product which led to a 50% higher adoption rate among users`,
@@ -106,7 +106,7 @@ export const load = (() => {
 			{ name: "Go", level: 7 },
 			{ name: "Postgres", level: 7 },
 			{ name: "Java", level: 6 },
-			{ name: "Tensorflow", level: 4 },
+			{ name: "Cypress", level: 6 },
 			{ name: "MySQL", level: 7 },
 			{ name: "Spring Boot", level: 5 },
 		],
