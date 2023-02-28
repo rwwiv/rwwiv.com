@@ -45,7 +45,7 @@ const SOS: Employment = {
 	location: "Remote",
 	startDate: new Date(2019, 5),
 	endDate: new Date(2022, 1),
-	tech: ["Python", "Go", "Javascript", "Vue.js", "Bash", "Docker", "Redis"],
+	tech: ["Python", "Go", "Javascript", "Vue.js", "Tensorflow", "Docker", "Redis"],
 	experience: [
 		`Developed both an extensible machine learning framework built on Tensorflow and a service app that used this framework for AI-assisted log analysis,
 		introducing the first machine learning capability to the product which led to a 50% higher adoption rate among users`,
