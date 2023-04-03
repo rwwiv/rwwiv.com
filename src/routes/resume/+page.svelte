@@ -22,8 +22,8 @@
 	</div>
 	<ResumeBlock title="Summary">
 		<div>
-			Experienced software engineer with a track record of delivering successful projects in various
-			tech stacks including Python Django, Go, Vue.js, and Java Spring Boot. Specializes in
+			Experienced software engineer with a proven track record of delivering successful projects in
+			various tech stacks including Python Django, Go, Vue.js, and Java Spring Boot. Specializes in
 			developing and deploying web applications, micro-services, and machine learning-based tools.
 			Excited to bring my skills and experience to your software engineering team.
 		</div>
@@ -81,14 +81,14 @@
 	</ResumeBlock>
 	<ResumeBlock title="Languages &amp; Frameworks">
 		<div class="flex flex-col xs:flex-row">
-			<ul class="w-full xs:w-1/2">
+			<ul class="w-full xs:w-1/2 space-y-2">
 				{#each data.skills as skill, i}
 					{#if i % 2 == 0}
 						<ExperienceDots num={skill.level} name={skill.name} />
 					{/if}
 				{/each}
 			</ul>
-			<ul class="w-full xs:w-1/2">
+			<ul class="w-full xs:w-1/2 space-y-2">
 				{#each data.skills as skill, i}
 					{#if i % 2 != 0}
 						<ExperienceDots num={skill.level} name={skill.name} />

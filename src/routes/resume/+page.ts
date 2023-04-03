@@ -27,15 +27,15 @@ const LM: Employment = {
 	tech: ["Python", "Django", "Postgres", "Typescript", "AlpineJs", "HTMX"],
 	experience: [
 		`Contributed to an open-source Django server template using cutting-edge libraries such as Vite, AlpineJs, and HTMX.
-		This led to a 30% improvement in first sprint velocity on future projects using the template`,
+		This led to a 30% improvement in first sprint velocity on future projects using the template.`,
 		`Guided future contributors in developing a frontend component system for this open-source Django project
-		which resulted in a twofold increase in components produced`,
+		which resulted in a twofold increase in components produced.`,
 		`Collaborated in an agile team to engineer a web application for a health tech client,
-		leveraging the aforementioned technologies to reduce the spin-up time of new developers by 40%`,
+		leveraging the aforementioned technologies to reduce the spin-up time of new developers by 40%.`,
 		`Consulted and served as a staff engineer for this client after being invited to stay on,
-		playing an instrumental role in bringing the aforementioned application to market`,
+		playing an instrumental role in bringing the aforementioned application to market.`,
 		`Aided in the development of an open-source Python API wrapper for the EHR used by several projects at the company,
-		ultimately facilitating a successful deal with this EHR company to refer clients on an ongoing basis`,
+		ultimately facilitating a successful deal with this EHR company to refer clients on an ongoing basis.`,
 	],
 };
 
@@ -48,13 +48,13 @@ const SOS: Employment = {
 	tech: ["Python", "Go", "Javascript", "Vue.js", "Cypress", "Tensorflow", "Docker"],
 	experience: [
 		`Developed both an extensible machine learning framework built on Tensorflow and a service app that used this framework for AI-assisted log analysis,
-		introducing the first machine learning capability to the product which led to a 50% higher adoption rate among users`,
+		introducing the first machine learning capability to the product which led to a 50% higher adoption rate among users.`,
 		`Played an instrumental role in launching a new Docker-based version of a Linux distribution product,
-		bringing it from beta to release on a highly accelerated timeline`,
+		bringing it from beta to release on a highly accelerated timeline.`,
 		`Automated end-to-end testing of the product via the Cypress testing framework and served as an advocate for its adoption among team members,
-		which reduced release time from 1-2 weeks to half a day`,
+		which reduced release time from 1-2 weeks to half a day.`,
 		`Architected a Python middleware between the primary Go web app and user-defined local and remote API services for extensible security data analysis,
-		which removed a third-party dependency from the project and allowed for greater product flexibility`,
+		which removed a third-party dependency from the project and allowed for greater product flexibility.`,
 		// `Streamlined the installation and upgrade code of the product, written in Bash,
 		// allowing for a 20% decrease in time spent on further modifications`,
 		// `Redesigned the product and company logo as part of a branding update initiative with founding members,
@@ -72,22 +72,22 @@ const RSI: Employment = {
 	endDate: new Date(2019, 5),
 	tech: ["Java", "Spring Boot", "Javascript", "Angular", "MySQL"],
 	experience: [
-		`Worked in an agile team to rewrite a client's legacy desktop application as a full stack Java/Angular web app,
-		reducing the time spent in the app by its users by 75%`,
+		`Rewrote a client's legacy desktop application as a full stack Java/Angular web app alongside an agile team,
+		reducing the time spent in the app by its users by 75%.`,
 		`Engineered and contributed to several Java (Spring Boot) microservices, including developing unit tests using Junit and Mockito with 100% test coverage,
-		which allowed for highly reliable deployments of these services`,
+		which allowed for highly reliable deployments of these services.`,
 	],
 };
 
 const projects = [
-	"Building a a wifi-enabled plant moisture and light meter based on the ESP32-C3, written in Rust",
+	"Building a wifi-enabled plant moisture and light meter based on the ESP32-C3, written in Rust",
 	"Developing and maintaining a portfolio website at rwwiv.com (where you are now!), using Sveltekit",
 ];
 
 const CFG: VolunteerRole = {
 	group: "Code For Greenville",
 	role: "Individual contributor",
-	startYear: new Date(2022, 1), // Set month to anything since we don't use it
+	startYear: new Date(1970, 1), // Set month to anything since we don't use it
 };
 
 export const load = (() => {
@@ -101,10 +101,10 @@ export const load = (() => {
 		skills: [
 			{ name: "Python", level: 10 },
 			{ name: "JS / TS", level: 10 },
-			{ name: "Django", level: 8 },
+			{ name: "Django", level: 9 },
 			{ name: "Vue.js", level: 8 },
 			{ name: "Go", level: 7 },
-			{ name: "Postgres", level: 7 },
+			{ name: "Postgres", level: 6 },
 			{ name: "Java", level: 6 },
 			{ name: "Cypress", level: 6 },
 			{ name: "MySQL", level: 7 },
