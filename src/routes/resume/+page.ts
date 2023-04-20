@@ -14,6 +14,7 @@ interface Employment {
 interface VolunteerRole {
 	group: string;
 	role: string;
+	url: string;
 	startYear: Date;
 	endYear?: Date;
 }
@@ -88,12 +89,14 @@ const CFG: VolunteerRole = {
 	group: "Code For Greenville",
 	role: "Individual contributor",
 	startYear: new Date(2022, 1),
+	url: "https://codeforgreenville.org/",
 };
 
 const CAIM: VolunteerRole = {
 	group: "Caim",
 	role: "Software Engineer",
 	startYear: new Date(2023, 1),
+	url: "https://www.caim.org/",
 };
 
 export const load = (() => {
@@ -117,6 +120,6 @@ export const load = (() => {
 			{ name: "Spring Boot", level: 5 },
 		],
 		projects,
-		volunteerRoles: [CFG, CAIM],
+		volunteerRoles: [CAIM, CFG],
 	};
 }) satisfies PageLoad;

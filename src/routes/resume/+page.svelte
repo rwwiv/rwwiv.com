@@ -64,18 +64,17 @@
 		</ul>
 	</ResumeBlock>
 	<ResumeBlock title="Volunteer Work">
-		<div class="flex flex-col space-y-1">
+		<div class="flex flex-col space-y-5">
 			{#each data.volunteerRoles as v}
-				<div class="font-semibold text-xl">{v.group}</div>
 				<div>
-					{v.role}
-				</div>
-				<div class="text-sm text-gray-600 dark:text-gray-300">
-					{v.startYear.toLocaleDateString("en-us", { year: "numeric" })}
-					-
-					{#if v.endYear}
-						{v.endYear.toLocaleDateString("en-us", { year: "numeric" })}
-					{:else}Present{/if}
+					<div class="text-lg"><span class="font-semibold">{v.group}</span> - {v.role}</div>
+					<div class="text-sm text-gray-600 dark:text-gray-300">
+						{v.startYear.toLocaleDateString("en-us", { year: "numeric" })}
+						-
+						{#if v.endYear}
+							{v.endYear.toLocaleDateString("en-us", { year: "numeric" })}
+						{:else}Present{/if}
+					</div>
 				</div>
 			{/each}
 		</div>
