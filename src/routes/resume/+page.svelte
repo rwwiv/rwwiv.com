@@ -23,9 +23,10 @@
 	<ResumeBlock title="Summary">
 		<div>
 			Experienced software engineer with a proven track record of delivering successful projects in
-			various tech stacks including Python Django, Go, Vue.js, and Java Spring Boot. Specializes in
-			developing and deploying web applications, micro-services, and machine learning-based tools.
-			Excited to bring my skills and experience to your software engineering team.
+			various technologies including Python (Flask, Django), Go, Vue.js, and Java (Spring Boot).
+			Specializes in developing and deploying web applications, micro-services, and machine
+			learning-based tools. Excited to bring my skills and experience to your software engineering
+			team.
 		</div>
 	</ResumeBlock>
 	<ResumeBlock title="Work Experience">

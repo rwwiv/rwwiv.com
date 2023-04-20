@@ -87,7 +87,13 @@ const projects = [
 const CFG: VolunteerRole = {
 	group: "Code For Greenville",
 	role: "Individual contributor",
-	startYear: new Date(1970, 1), // Set month to anything since we don't use it
+	startYear: new Date(2022, 1),
+};
+
+const CAIM: VolunteerRole = {
+	group: "Caim",
+	role: "Software Engineer",
+	startYear: new Date(2023, 1),
 };
 
 export const load = (() => {
@@ -111,6 +117,6 @@ export const load = (() => {
 			{ name: "Spring Boot", level: 5 },
 		],
 		projects,
-		volunteerRoles: [CFG],
+		volunteerRoles: [CFG, CAIM],
 	};
 }) satisfies PageLoad;
