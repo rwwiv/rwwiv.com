@@ -4,14 +4,35 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"os"
+	"time"
 
-	"rwwiv_com/api"
-	models "rwwiv_com/api/models"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
+type Employment struct {
+	gorm.Model
+	JobTitle     string    `json:"jobTitle"`
+	EmployerName string    `json:"employerName"`
+	Location     string    `json:"location"`
+	StartDate    time.Time `json:"startDate"`
+	EndDate      time.Time `json:"endDate,omitempty"`
+	Tech         []string  `json:"tech"`
+	Experience   []string  `json:"experience"`
+}
+
+type VolunteerRole struct {
+	gorm.Model
+	Group     string    `json:"group"`
+	Role      string    `json:"role"`
+	StartYear time.Time `json:"startYear"`
+	EndYear   time.Time `json:"endYear,omitempty"`
+}
+
 func Handler(w http.ResponseWriter, r *http.Request) {
-	pcConn := api.PgConn{}
-	db, err := pcConn.GetConnection()
+	dsn := os.Getenv("DB_CONN")
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		log.Fatalf("coul not do")
@@ -22,9 +43,9 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		dbInstance.Close()
 	}()
 
-	db.AutoMigrate(&models.Employment{})
+	db.AutoMigrate(&Employment{})
 
-	var employments []models.Employment
+	var employments []Employment
 
 	db.Find(&employments)
 
