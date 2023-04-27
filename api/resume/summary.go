@@ -11,15 +11,25 @@ import (
 	"gorm.io/gorm"
 )
 
+type Tech struct {
+	gorm.Model
+	Value string `json:"value"`
+}
+
+type Experience struct {
+	gorm.Model
+	Value string `json:"value"`
+}
+
 type Employment struct {
 	gorm.Model
-	JobTitle     string    `json:"jobTitle"`
-	EmployerName string    `json:"employerName"`
-	Location     string    `json:"location"`
-	StartDate    time.Time `json:"startDate"`
-	EndDate      time.Time `json:"endDate,omitempty"`
-	Tech         []string  `json:"tech"`
-	Experience   []string  `json:"experience"`
+	JobTitle     string       `json:"jobTitle"`
+	EmployerName string       `json:"employerName"`
+	Location     string       `json:"location"`
+	StartDate    time.Time    `json:"startDate"`
+	EndDate      time.Time    `json:"endDate,omitempty"`
+	Tech         []Tech       `json:"tech"`
+	Experience   []Experience `json:"experience"`
 }
 
 type VolunteerRole struct {
