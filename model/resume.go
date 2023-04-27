@@ -12,7 +12,7 @@ type Tabler interface {
 
 type Tech struct {
 	gorm.Model   `json:"-"`
-	Value        string `json:"string"`
+	Value        string `json:"value"`
 	EmploymentID uint   `json:"-"`
 }
 
@@ -22,7 +22,7 @@ func (Tech) TableName() string {
 
 type Experience struct {
 	gorm.Model   `json:"-"`
-	Value        string `json:"string"`
+	Value        string `json:"value"`
 	EmploymentID uint   `json:"-"`
 }
 
