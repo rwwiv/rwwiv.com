@@ -114,7 +114,6 @@ export const load = (() => {
 			{ name: "Java", level: 6 },
 			{ name: "Cypress", level: 6 },
 			{ name: "MySQL", level: 7 },
-			{ name: "Spring Boot", level: 5 },
 		],
 		projects,
 		volunteerRoles: [CAIM, CFG],
