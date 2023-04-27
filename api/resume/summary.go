@@ -45,7 +45,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
-		log.Fatalf("coul not do")
+		log.Fatalf("could not do")
 	}
 
 	defer func() {
@@ -53,11 +53,13 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		dbInstance.Close()
 	}()
 
+	db.AutoMigrate(&Tech{})
+	db.AutoMigrate(&Experience{})
 	db.AutoMigrate(&Employment{})
 
 	var employments []Employment
 
-	db.Find(&employments)
+	db.Model(&Employment{}).Find(&employments)
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
