@@ -37,18 +37,14 @@
 						<br />
 						<sub class="text-xs text-neutral-600 dark:text-neutral-300">
 							* Check
-							<a
-								href="https://github.com/rwwiv/rwwiv.com"
-								class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
-							>
-								here
+							<a href="https://github.com/rwwiv/rwwiv.com" target="_blank" rel="noreferrer"
+								>Vercel class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400
+								hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700" > here
 							</a>
 							for the site repo and
-							<a
-								href="https://github.com/rwwiv/go-serverless"
-								class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
-							>
-								here
+							<a href="https://github.com/rwwiv/go-serverless" target="_blank" rel="noreferrer"
+								>Vercel class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400
+								hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700" > here
 							</a> for the Go functions!
 						</sub>
 					</li>

@@ -378,18 +378,14 @@ setPreviewSrc(image);`;
 			</div>
 			<h1 class="self-center">Et voilà!</h1>
 			<sub class="self-center text-sm">
-				<a
-					href="https://github.com/rwwiv/rwwiv.com"
-					class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
-				>
-					Site source
+				<a href="https://github.com/rwwiv/rwwiv.com" target="_blank" rel="noreferrer"
+					>Vercel class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400
+					hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700" > Site source
 				</a>
 				and
-				<a
-					href="https://github.com/rwwiv/go-serverless"
-					class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
-				>
-					Go source
+				<a href="https://github.com/rwwiv/go-serverless" target="_blank" rel="noreferrer"
+					>Vercel class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400
+					hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700" > Go source
 				</a>
 			</sub>
 		</div>
