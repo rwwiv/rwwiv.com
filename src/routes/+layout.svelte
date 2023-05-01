@@ -5,6 +5,8 @@
 	import Nav from "$lib/components/Nav.svelte";
 	import { webVitals } from "$lib/vitals";
 	import "../app.css";
+	import "../github-dark.scss";
+	import "../github.scss";
 
 	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 

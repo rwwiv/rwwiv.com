@@ -28,16 +28,29 @@
 						Check back soon for more on that project.
 					</li>
 					<li class="text-sm">
-						This website! This site is built using Sveltekit for now, with a Go backend coming soon.
+						This website! This site is built using Sveltekit with some experiments in serverless Go
+						functions under <a
+							href="/dragons"
+							class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
+							>Dragons</a
+						>.
 						<br />
-						Check
-						<a
-							href="https://github.com/rwwiv/rwwiv.com"
-							class="underline hover:text-blue-400 cursor-pointer"
-						>
-							here
-						</a>
-						for the public repo!
+						<sub class="text-xs text-neutral-600 dark:text-neutral-300">
+							* Check
+							<a
+								href="https://github.com/rwwiv/rwwiv.com"
+								class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
+							>
+								here
+							</a>
+							for the site repo and
+							<a
+								href="https://github.com/rwwiv/go-serverless"
+								class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
+							>
+								here
+							</a> for the Go functions!
+						</sub>
 					</li>
 				</ul>
 			</div>

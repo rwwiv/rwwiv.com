@@ -7,6 +7,7 @@
 	<div class="flex justify-center space-x-4 mt-2 text-2xl">
 		<a href="/about" class:active={$page.url.pathname === "/about"}>About</a>
 		<a href="/resume" class:active={$page.url.pathname === "/resume"}>Resume</a>
+		<a href="/dragons" class:active={$page.url.pathname.includes("/dragons")}>Dragons</a>
 	</div>
 </div>
 
