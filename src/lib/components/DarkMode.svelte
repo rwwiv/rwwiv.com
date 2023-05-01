@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { browser } from "$app/environment";
+
 	const toggleTheme = () => {
 		const isDark = window.document.documentElement.classList.toggle("dark");
-		localStorage.setItem("color-theme", isDark ? "dark" : "light");
+		const darkString = isDark ? "dark" : "light";
+		localStorage.setItem("color-theme", darkString);
 	};
 
 	const useSystemColor = () => {
@@ -19,8 +21,10 @@
 	<script>
 		if (window) {
 			function setDarkMode() {
-				localStorage.getItem("color-theme") === "dark" ||
-				(!("color-theme" in localStorage) && darkModePreference.matches)
+				const darkMode =
+					localStorage.getItem("color-theme") === "dark" ||
+					(!("color-theme" in localStorage) && darkModePreference.matches);
+				darkMode
 					? window.document.documentElement.classList.add("dark")
 					: window.document.documentElement.classList.remove("dark");
 			}
@@ -35,12 +39,12 @@
 </svelte:head>
 
 <div class="flex flex-col items-center space-y-3 select-none">
-	<div
+	<button
 		on:click={toggleTheme}
 		on:keypress={toggleTheme}
-		class="cursor-pointer hover:dark:text-gray-500 hover:text-gray-700 "
+		class="cursor-pointer hover:dark:text-neutral-100 hover:text-neutral-700 focus:outline-none group"
 	>
-		<div class="hidden dark:block active:text-purple-500">
+		<div class="hidden dark:block active:text-purple-500 group-focus:text-neutral-500">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 20 20"
@@ -52,7 +56,7 @@
 				/>
 			</svg>
 		</div>
-		<div class="block dark:hidden active:text-orange-500">
+		<div class="block dark:hidden active:text-orange-500 group-focus:text-neutral-500">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 20 20"
@@ -66,12 +70,12 @@
 				/>
 			</svg>
 		</div>
-	</div>
-	<div
+	</button>
+	<button
 		on:click={useSystemColor}
 		on:keypress={useSystemColor}
-		class="cursor-pointer hover:dark:text-gray-500 hover:text-gray-700 active:text-blue-400 dark:active:text-blue-500 text-xs"
+		class="cursor-pointer hover:dark:text-neutral-100 hover:text-neutral-700 active:text-blue-400 dark:active:text-blue-500 text-xs focus:outline-none focus:underline"
 	>
 		Use system dark mode
-	</div>
+	</button>
 </div>
