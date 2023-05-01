@@ -19,10 +19,6 @@
 	}
 </script>
 
-<svelte:head>
-	<title>RWWIV</title>
-</svelte:head>
-
 <div class="flex flex-col min-h-screen">
 	<Nav />
 	<div class="my-12 lg:my-16 flex-1">

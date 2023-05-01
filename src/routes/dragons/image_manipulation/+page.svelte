@@ -170,7 +170,7 @@ setPreviewSrc(image);`;
 </script>
 
 <svelte:head>
-	<title>PLAYGROUND</title>
+	<title>DRAGON 1</title>
 </svelte:head>
 
 <div class="flex flex-col justify-center items-center px-4 parent">

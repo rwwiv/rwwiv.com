@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>DRAGONS</title>
+</svelte:head>
+
 <div class="flex flex-col justify-center items-center max-w-xl mx-auto space-y-10">
 	<div class="space-y-2">
 		<h1 class="text-4xl">
