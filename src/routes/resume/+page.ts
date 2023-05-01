@@ -82,7 +82,7 @@ const RSI: Employment = {
 const projects = [
 	"Building a wifi-enabled plant moisture and light meter based on the ESP32-C3, written in Rust",
 	"Developing and maintaining a portfolio website at rwwiv.com (where you are now!), using Sveltekit",
-	"See more under the Dragons link in the header!",
+	"See more under the Dragons link in the header",
 ];
 
 const CFG: VolunteerRole = {
