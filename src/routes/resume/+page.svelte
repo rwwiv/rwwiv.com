@@ -48,7 +48,7 @@
 		<div class="flex flex-col space-y-1">
 			<div class="font-semibold text-xl">{data.education.degree}</div>
 			<div>{data.education.university}</div>
-			<div class="text-sm text-gray-600 dark:text-gray-300">
+			<div class="text-sm text-neutral-600 dark:text-neutral-300">
 				{data.education.graduationDate.toLocaleDateString("en-us", {
 					year: "numeric",
 					month: "short",
@@ -68,7 +68,7 @@
 			{#each data.volunteerRoles as v}
 				<div>
 					<div class="text-lg"><span class="font-semibold">{v.group}</span> - {v.role}</div>
-					<div class="text-sm text-gray-600 dark:text-gray-300">
+					<div class="text-sm text-neutral-600 dark:text-neutral-300">
 						{v.startYear.toLocaleDateString("en-us", { year: "numeric" })}
 						-
 						{#if v.endYear}

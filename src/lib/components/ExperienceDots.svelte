@@ -14,7 +14,7 @@
 			<div class="font-extrabold">&bull;</div>
 		{/each}
 		{#each Array(remainder) as _}
-			<div class="text-gray-400">-</div>
+			<div class="text-neutral-400">-</div>
 		{/each}
 	</div>
 </div>

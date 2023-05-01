@@ -23,7 +23,7 @@
 
 <div class="flex flex-col min-h-screen">
 	<Nav />
-	<div class="mt-12 lg:mt-16 mb-24 flex-1">
+	<div class="my-12 lg:my-16 flex-1">
 		<slot />
 	</div>
 	<Footer />

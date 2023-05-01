@@ -11,7 +11,7 @@
 	<div class="flex flex-col items-center justify-center px-3 md:w-auto space-y-10">
 		<div
 			id="polaroid"
-			class="flex flex-col items-center justify-center rounded-sm img-wrapper bg-black dark:bg-white"
+			class="flex flex-col items-center justify-center rounded-sm img-wrapper bg-neutral-800 dark:bg-neutral-100"
 		>
 			<img src={me} alt="Self portrait" class="mt-4 px-3" height="350px" width="350px" />
 			<div class="h-[75px]" />
@@ -48,7 +48,10 @@
 						Building a street photography portfolio with my Fujifilm X-T3
 						<br />
 						Check
-						<a href="/" class="underline cursor-pointer hover:text-blue-400">
+						<a
+							href="/"
+							class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
+						>
 							this site's home page
 						</a> soon for some of my work!
 					</li>

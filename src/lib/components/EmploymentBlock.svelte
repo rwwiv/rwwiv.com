@@ -17,7 +17,7 @@
 				{#if i != tech.length - 1}&bullet;&nbsp;{/if}
 			{/each}
 		</div>
-		<div class="text-sm text-gray-600 dark:text-gray-300">
+		<div class="text-sm text-neutral-600 dark:text-neutral-300">
 			{startDate.toLocaleDateString("en-us", {
 				year: "numeric",
 				month: "short",
