@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { env } from "$env/dynamic/public";
 	import Code from "$lib/components/Code.svelte";
 	import InlineCode from "$lib/components/InlineCode.svelte";
 	// @ts-ignore
@@ -36,7 +37,7 @@
 			const fData = new FormData(form);
 			fData.set("image", image);
 
-			const gRes = await fetch(`http://localhost:3000/api/image/${action}`, {
+			const gRes = await fetch(`${env.PUBLIC_API_URL}/api/image/${action}`, {
 				method: "POST",
 				body: fData,
 			});
