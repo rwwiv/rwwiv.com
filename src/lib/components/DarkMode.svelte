@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { browser } from "$app/environment";
 
-	const toggleTheme = () => {
+	const toggleTheme = (event: Event) => {
 		const isDark = window.document.documentElement.classList.toggle("dark");
 		const darkString = isDark ? "dark" : "light";
 		localStorage.setItem("color-theme", darkString);
+		setTimeout(() => {
+			(document.getElementById("dark-mode-toggle") as HTMLElement).blur();
+		}, 1);
 	};
 
 	const useSystemColor = () => {
@@ -40,11 +43,14 @@
 
 <div class="flex flex-col items-center space-y-3 select-none">
 	<button
+		id="dark-mode-toggle"
 		on:click={toggleTheme}
 		on:keypress={toggleTheme}
-		class="cursor-pointer hover:dark:text-neutral-100 hover:text-neutral-700 focus:outline-none group"
+		class="cursor-pointer focus:outline-none group"
 	>
-		<div class="hidden dark:block active:text-purple-500 group-focus:text-neutral-500">
+		<div
+			class="hidden dark:block group-active:text-orange-500 group-focus:text-neutral-500 group-hover:text-neutral-400"
+		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 20 20"
@@ -56,7 +62,9 @@
 				/>
 			</svg>
 		</div>
-		<div class="block dark:hidden active:text-orange-500 group-focus:text-neutral-500">
+		<div
+			class="block dark:hidden group-active:text-purple-500 group-focus:text-neutral-500 group-hover:text-neutral-500"
+		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 20 20"
@@ -74,7 +82,7 @@
 	<button
 		on:click={useSystemColor}
 		on:keypress={useSystemColor}
-		class="cursor-pointer hover:dark:text-neutral-100 hover:text-neutral-700 active:text-blue-400 dark:active:text-blue-500 text-xs focus:outline-none focus:underline"
+		class="cursor-pointer hover:dark:text-neutral-400 hover:text-neutral-500 active:text-blue-400 dark:active:text-blue-500 text-xs focus:outline-none focus:underline"
 	>
 		Use system dark mode
 	</button>
