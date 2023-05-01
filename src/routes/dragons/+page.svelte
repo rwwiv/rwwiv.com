@@ -31,7 +31,7 @@
 			>
 		</h1>
 	</div>
-	<div class="flex flex-col space-y-12">
+	<div class="flex flex-col space-y-12 w-[350px] sm:w-auto sm:max-w-xl">
 		<Dragon
 			link="/dragons/image_manipulation"
 			title="Image manipulation using serverless Go functions"
