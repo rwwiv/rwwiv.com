@@ -21,6 +21,6 @@
 	}
 
 	#nav a.active {
-		@apply text-neutral-900 dark:text-neutral-100 hover:text-neutral-700 dark:hover:text-neutral-300;
+		@apply text-green-700 dark:text-green-200 hover:text-green-500 dark:hover:text-green-400;
 	}
 </style>

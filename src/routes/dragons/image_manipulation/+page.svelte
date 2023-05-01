@@ -2,6 +2,7 @@
 	import { env } from "$env/dynamic/public";
 	import Code from "$lib/components/Code.svelte";
 	import InlineCode from "$lib/components/InlineCode.svelte";
+	import MoreDivider from "$lib/components/MoreDivider.svelte";
 	// @ts-ignore
 	import Slider from "@bulatdashiev/svelte-slider";
 	import { tick } from "svelte";
@@ -286,16 +287,7 @@ setPreviewSrc(image);`;
 	<!-- Here be dragons... -->
 
 	<!-- Fancy divider -->
-	<div class="flex flex-col items-center mt-[250px] mb-6">
-		<div class="flex flex-col items-center -space-y-1">
-			<p>.</p>
-			<p>.</p>
-			<p>.</p>
-		</div>
-		<hr
-			class="w-[150px] mt-4 mb-10 h-[1px] rounded-full border-t-0 bg-neutral-900 dark:bg-neutral-100 opacity-100 dark:opacity-50"
-		/>
-	</div>
+	<MoreDivider />
 
 	<!-- Write up -->
 	<div class="px-4 max-w-sm sm:max-w-xl md:max-w-3xl">
@@ -303,20 +295,20 @@ setPreviewSrc(image);`;
 			<h1 class="font-bold italic">What is this doing?</h1>
 			<div class="space-y-6">
 				<p>
-					At a high level we accept an uploaded image into an in-memory file blob on the client and
-					then post that file as part of a multipart form along with some extra info to some
-					<InlineCode code="&lcub;HOSTNAME&rcub;/api/image/&lcub;ACTION&rcub;" language="svelte" />
-					URL.
+					At a high level we accept an uploaded image into an in-memory file blob in the browser,
+					and then post that file as part of a multipart form along with some extra info to a URL
+					with the shape
+					<InlineCode code="&lcub;HOSTNAME&rcub;/api/image/&lcub;ACTION&rcub;" language="svelte" />.
 				</p>
 				<p>
-					This URL corresponds to some Go serverless function running on
+					This URL corresponds to a Go serverless function running on
 					<a
 						class="focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
 						href="https://vercel.com/docs/concepts/functions/serverless-functions"
 						target="_blank"
 						rel="noreferrer">Vercel</a
-					>. That function performs some processing on the image and then responds with the
-					processed image, which we then replace the in-memory file blob with client-side.
+					>. That function processes the image in some way and builds a response with the processed
+					image; which we use to replace the in-memory file blob client-side.
 				</p>
 			</div>
 			<hr
@@ -362,12 +354,15 @@ setPreviewSrc(image);`;
 					called. We then re-encode the image to a buffer and write it to the response:
 				</p>
 				<Code language="go" code={goImageResponseCode} />
-				<sub class="text-sm tracking-wide ml-2">
-					* A possible improvement to be made here would be to join the functions into a single
-					image processing function and take the action as another field in the form. This would
-					greatly reduce code repetition, at the cost of an increasingly long and complicated switch
-					statement.
-				</sub>
+				<div class="flex space-x-1">
+					<sub class="mt-2.5">*</sub>
+					<sub class="text-sm tracking-wide">
+						A possible improvement to be made here would be to join the functions into a single
+						image processing function and take the action as another field in the form. This would
+						greatly reduce code repetition, at the cost of an increasingly long and complicated
+						switch statement.
+					</sub>
+				</div>
 			</div>
 			<div class="flex flex-col space-y-2">
 				<p>
@@ -382,7 +377,7 @@ setPreviewSrc(image);`;
 					href="https://github.com/rwwiv/rwwiv.com"
 					target="_blank"
 					rel="noreferrer"
-					class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
+					class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
 				>
 					Site source
 				</a>
@@ -391,7 +386,7 @@ setPreviewSrc(image);`;
 					href="https://github.com/rwwiv/go-serverless"
 					target="_blank"
 					rel="noreferrer"
-					class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
+					class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
 				>
 					Go source
 				</a>

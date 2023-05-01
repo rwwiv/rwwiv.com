@@ -17,8 +17,8 @@
 			<div class="text-4xl text-red-400">DRAFT</div>
 			<br />
 		-->
-		<div class="text-4xl">William Wernert</div>
-		<div class="text-lg font-light">Full Stack Engineer</div>
+		<div class="text-4xl font-semibold text-green-800 dark:text-green-200">William Wernert</div>
+		<div class="text-lg">Full Stack Engineer</div>
 	</div>
 	<ResumeBlock title="Summary">
 		<div>
@@ -46,7 +46,9 @@
 	</ResumeBlock>
 	<ResumeBlock title="Education">
 		<div class="flex flex-col space-y-1">
-			<div class="font-semibold text-xl">{data.education.degree}</div>
+			<div class="font-semibold text-xl">
+				{data.education.degree}
+			</div>
 			<div>{data.education.university}</div>
 			<div class="text-sm text-neutral-600 dark:text-neutral-300">
 				{data.education.graduationDate.toLocaleDateString("en-us", {
@@ -67,7 +69,9 @@
 		<div class="flex flex-col space-y-5">
 			{#each data.volunteerRoles as v}
 				<div>
-					<div class="text-lg"><span class="font-semibold">{v.group}</span> - {v.role}</div>
+					<div class="text-lg">
+						<span class="font-semibold">{v.group}</span> - {v.role}
+					</div>
 					<div class="text-sm text-neutral-600 dark:text-neutral-300">
 						{v.startYear.toLocaleDateString("en-us", { year: "numeric" })}
 						-

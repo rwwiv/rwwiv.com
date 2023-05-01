@@ -1,6 +1,6 @@
 <script>
 	// @ts-ignore
-	import me from "$lib/assets/me.jpg?h=350&w=350";
+	import me from "$lib/assets/me.jpg?h=500&w=500";
 </script>
 
 <svelte:head>
@@ -9,72 +9,108 @@
 
 <div class="flex flex-col items-center justify-center">
 	<div class="flex flex-col items-center justify-center px-3 md:w-auto space-y-10">
-		<div
-			id="polaroid"
-			class="flex flex-col items-center justify-center rounded-sm img-wrapper bg-neutral-800 dark:bg-neutral-100"
-		>
-			<img src={me} alt="Self portrait" class="mt-4 px-3" height="350px" width="350px" />
-			<div class="h-[75px]" />
+		<div class="flex self-start items-center space-x-3 md:space-x-6">
+			<div
+				id="polaroid"
+				class="flex flex-col items-center justify-center  rounded-sm img-wrapper bg-neutral-800 dark:bg-neutral-100"
+			>
+				<img src={me} alt="Self portrait" class="mt-4 px-3" height="350px" width="350px" />
+				<div class="h-[75px] text-neutral-200 dark:text-neutral-900 p-3" />
+			</div>
+			<div class="flex items-center space-x-1">
+				<svg
+					class="w-8 h-8 md:w-10 md:h-10 mt-1 md:mt-2"
+					viewBox="0 -93 253 253"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M44.0843 40.9472C52.1114 45.6391 58.2373 49.2646 64.152 52.6768C66.2644 53.9564 68.3768 55.0228 70.278 56.5156C73.0241 58.435 76.8264 60.5677 74.714 64.6198C72.6016 68.4586 68.5881 66.7525 65.6307 65.6861C62.4621 64.8331 59.2935 63.1269 56.3362 61.634C42.6056 55.0228 28.8751 48.1982 15.3557 41.3737C11.7647 39.4543 7.96236 37.7482 4.79377 35.189C-1.96589 30.0706 -1.54341 24.9522 5.84997 21.1134C15.7782 15.995 25.9177 11.3031 36.0572 6.61127C40.282 4.47861 44.718 2.34595 49.154 0.853085C51.6889 1.95124e-05 54.6462 0.213266 57.3924 0C58.2373 5.97146 54.8575 7.25107 51.9001 8.74394C44.5068 12.796 36.9021 16.6348 29.5088 20.6869C26.9739 22.1797 24.2278 23.6726 21.6929 27.0849C25.4952 27.5114 29.0863 28.1512 32.8886 28.3644C61.4059 29.8573 89.712 31.3502 118.229 32.8431C159.632 34.9757 200.824 37.1084 242.227 39.4543C245.607 39.6676 248.986 40.9472 253 42.0135C249.198 47.7717 244.762 46.4921 241.171 46.2789C220.892 45.8523 200.401 44.9992 180.122 44.3594C136.396 42.8666 92.6693 41.3737 48.9428 39.8809C47.8866 40.0941 47.2529 40.3074 44.0843 40.9472Z"
+						fill="currentColor"
+					/>
+				</svg>
+				<sub class="text-xs md:text-base">That's me</sub>
+			</div>
 		</div>
-		<div class="flex flex-col space-y-6 w-[20em] mb-12">
-			<h1 class="text-3xl">Current Projects</h1>
+		<div class="flex flex-col space-y-6 max-w-xl mb-12">
+			<h1>Current Projects</h1>
 			<div class="flex flex-col space-y-2">
-				<div class="text-xl font-bold">Software Engineering</div>
+				<h2>Software Engineering</h2>
 				<ul class="list-disc space-y-2 ml-3 text-sm">
 					<li class="text-sm">
-						Learning embedded programming and Rust by creating a wifi-enabled plant moisture and
-						light meter based on the ESP32-C3!
-						<br />
-						Check back soon for more on that project.
+						<p>
+							Learning embedded programming and Rust by creating a wifi enabled plant moisture and
+							light meter based on the ESP32-C3
+							<br />
+							<span class="flex space-x-1">
+								<sub>*</sub>
+								<sub>More on that project soon</sub>
+							</span>
+						</p>
 					</li>
 					<li class="text-sm">
-						This website! This site is built using Sveltekit with some experiments in serverless Go
-						functions under <a
-							href="/dragons"
-							class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
-							>Dragons</a
-						>.
-						<br />
-						<sub class="text-xs text-neutral-600 dark:text-neutral-300">
-							* Check
-							<a
-								href="https://github.com/rwwiv/rwwiv.com"
-								target="_blank"
-								rel="noreferrer"
-								class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
-							>
-								here
-							</a>
-							for the site repo and
-							<a
-								href="https://github.com/rwwiv/go-serverless"
-								target="_blank"
-								rel="noreferrer"
-								class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
-							>
-								here
-							</a> for the Go functions!
-						</sub>
+						<p>
+							This website! This site is built using Sveltekit with some fun experiments under
+							Dragons in the header
+							<br />
+							<span class="flex space-x-1">
+								<sub>*</sub>
+								<sub>
+									Site repo is at
+									<a
+										href="https://github.com/rwwiv/rwwiv.com"
+										target="_blank"
+										rel="noreferrer"
+										class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
+										>github.com/rwwiv/rwwiv.com</a
+									></sub
+								>
+							</span>
+						</p>
 					</li>
 				</ul>
 			</div>
 			<div class="flex flex-col space-y-1">
-				<div class="text-2xl font-bold">Photography</div>
+				<h2>Photography</h2>
 				<ul class="list-disc space-y-2 ml-3 text-sm">
 					<li>
-						Building a street photography portfolio with my Fujifilm X-T3
-						<br />
-						Check
-						<a
-							href="/"
-							class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 hover:dark focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
-						>
-							this site's home page
-						</a> soon for some of my work!
+						<p>
+							Building a street photography portfolio with my Fujifilm X-T3
+							<br />
+							<span class="flex space-x-1">
+								<sub>*</sub>
+								<sub>Check this site's home page soon for some of my work!</sub>
+							</span>
+						</p>
 					</li>
-					<li>Slowly (oh so slowly) learning film photography on a Canon AE-1</li>
+					<li>
+						<p>Slowly &mdash; oh so slowly &mdash; learning film photography on a Canon AE-1</p>
+					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </div>
+
+<style lang="postcss">
+	h1 {
+		@apply text-4xl font-bold;
+	}
+
+	h2 {
+		@apply text-2xl font-semibold;
+		@apply text-green-700;
+	}
+	:global(.dark) h2 {
+		@apply text-green-200;
+	}
+	p {
+		@apply text-lg;
+	}
+	p sub {
+		@apply text-xs text-neutral-600;
+	}
+	:global(.dark) p sub {
+		@apply text-neutral-300;
+	}
+</style>
