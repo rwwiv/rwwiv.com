@@ -233,7 +233,7 @@ setPreviewSrc(image);`;
 						id="formAction"
 						name="action"
 						bind:value={action}
-						class="bg-neutral-50 border border-neutral-300 text-neutral-900 text-base rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-neutral-700 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-neutral-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 cursor-pointer"
+						class="bg-white border border-neutral-200 text-neutral-900 text-base rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-neutral-700 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-neutral-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 cursor-pointer"
 					>
 						{#each Object.entries(actions) as [value, name]}
 							<option {value}>{name}</option>
@@ -267,7 +267,7 @@ setPreviewSrc(image);`;
 				{/if}
 				<button
 					type="submit"
-					class="py-2 px-4 text-base font-medium text-neutral-900 focus:outline-none bg-white rounded border border-neutral-200 hover:bg-neutral-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-neutral-200 dark:focus:ring-neutral-700 dark:bg-neutral-800 dark:text-neutral-400 dark:border-neutral-600 dark:hover:text-neutral-100 dark:hover:bg-neutral-700"
+					class="py-2 px-4 text-base font-medium text-neutral-800 focus:outline-none bg-neutral-50 rounded border border-neutral-200 hover:bg-neutral-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-neutral-200 dark:focus:ring-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 dark:border-neutral-600 dark:hover:text-neutral-100 dark:hover:bg-neutral-700"
 				>
 					Submit
 				</button>
@@ -277,7 +277,7 @@ setPreviewSrc(image);`;
 			/>
 			<button
 				on:click={resetState}
-				class="px-6 text-sm font-medium text-neutral-900 focus:outline-none bg-white rounded border border-neutral-200 hover:bg-neutral-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-neutral-200 dark:focus:ring-neutral-700 dark:bg-neutral-800 dark:text-neutral-400 dark:border-neutral-600 dark:hover:text-neutral-100 dark:hover:bg-neutral-700"
+				class="px-6 text-sm font-medium text-neutral-800 focus:outline-none bg-neutral-50 rounded border border-neutral-200 hover:bg-neutral-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-neutral-200 dark:focus:ring-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 dark:border-neutral-600 dark:hover:text-neutral-100 dark:hover:bg-neutral-700"
 			>
 				Reset
 			</button>
