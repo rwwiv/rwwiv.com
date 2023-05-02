@@ -19,7 +19,7 @@
 	<img class="w-[300px]" src={underConstruction} alt="Under construction" />
 	<div class="h-[50px]" />
 	<MoreDivider />
-	<h1>Recent Web Projects</h1>
+	<h1>Recent Web Exercises</h1>
 	<div class="flex flex-col md:flex-row space-y-24 md:space-y-0 md:space-x-12">
 		<ProjectPreview
 			src={teachmeto}
