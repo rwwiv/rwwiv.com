@@ -20,7 +20,7 @@
 	<div class="h-[50px]" />
 	<MoreDivider />
 	<h1>Recent Web Exercises</h1>
-	<div class="flex flex-col md:flex-row space-y-24 md:space-y-0 md:space-x-12">
+	<div class="flex flex-col md:flex-row mt-8 space-y-12 md:space-y-0 md:space-x-12">
 		<ProjectPreview
 			src={teachmeto}
 			title="T3 listing page"
