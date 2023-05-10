@@ -1,6 +1,5 @@
 <script lang="ts">
 	export let src: string;
-	export let minHeight: string | undefined = undefined;
 	export let title: string;
 	export let subtitle: string;
 	export let sourceUrl: string | undefined = undefined;
