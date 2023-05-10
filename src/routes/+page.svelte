@@ -16,7 +16,7 @@
 
 <div class="flex flex-col text-center items-center space-y-10">
 	<h1>Under Construction</h1>
-	<img class="w-[300px]" src={underConstruction} alt="Under construction" />
+	<img class="w-[300px] h-[300px]" src={underConstruction} alt="Under construction" />
 	<div class="h-[50px]" />
 	<MoreDivider />
 	<h1>Recent Web Exercises</h1>

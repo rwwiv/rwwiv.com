@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let src: string;
+	export let minHeight: string | undefined = undefined;
 	export let title: string;
 	export let subtitle: string;
 	export let sourceUrl: string | undefined = undefined;
@@ -9,7 +10,7 @@
 <div class="flex flex-col items-center space-y-6">
 	<div class="relative max-w-[350px] md:max-w-[400px]">
 		<img
-			class="duration-300 rounded border border-neutral-200 dark:border-none"
+			class="duration-300 rounded border border-neutral-200 dark:border-none min-h-[200px]"
 			{src}
 			alt="TeachMeTo"
 		/>
