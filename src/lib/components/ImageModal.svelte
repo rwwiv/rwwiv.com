@@ -74,25 +74,24 @@
 
 			<div class="image-wrapper">
 				{#key currentIndex}
-					{#if loading && currentImage.thumb}
-						<img class="thumb" src={currentImage.thumb} alt={currentImage.alt} />
-					{/if}
 					<img
-						class:loading
+						class="full"
+						class:loaded={!loading}
 						src={currentImage.src}
 						alt={currentImage.alt}
 						on:load={() => (loading = false)}
 					/>
-				{/key}
-				{#if loading}
-					<div class="loading-overlay" transition:fade>
-						<div class="loading-dots">
-							<div class="dot"></div>
-							<div class="dot"></div>
-							<div class="dot"></div>
+					{#if loading && currentImage.thumb}
+						<img class="thumb" src={currentImage.thumb} alt={currentImage.alt} />
+						<div class="loading-overlay" transition:fade>
+							<div class="loading-dots">
+								<div class="dot"></div>
+								<div class="dot"></div>
+								<div class="dot"></div>
+							</div>
 						</div>
-					</div>
-				{/if}
+					{/if}
+				{/key}
 			</div>
 
 			{#if hasNext}
@@ -146,12 +145,15 @@
 		inset: 0;
 		width: 100%;
 		height: 100%;
-		filter: blur(4px);
-		transform: scale(1.02); /* hide blur edges */
+		object-fit: contain;
 	}
 
-	.modal-content img.loading {
-		opacity: 0;
+	.modal-content img.full {
+		visibility: hidden;
+	}
+
+	.modal-content img.full.loaded {
+		visibility: visible;
 	}
 
 	.loading-overlay {
