@@ -189,7 +189,7 @@ setPreviewSrc(image);`;
 				bind:this={input}
 				on:change={previewImage}
 				accept="image/jpeg, image/png"
-				class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.4rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.4rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.4rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:text-neutral-700 focus:outline-none focus:border-neutral-400 focus:dark:border-neutral-400 dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 file:cursor-pointer"
+				class="file-input"
 				type="file"
 				id="formFile"
 			/>
@@ -403,6 +403,24 @@ setPreviewSrc(image);`;
 	}
 	.parent :global(.thumb) {
 		@apply cursor-pointer;
+	}
+
+	.file-input {
+		@apply block w-full text-base rounded border border-neutral-300 cursor-pointer;
+		@apply bg-neutral-50 text-neutral-700;
+		@apply focus:outline-none focus:border-neutral-400;
+	}
+	.file-input::file-selector-button {
+		@apply px-4 py-2 mr-3 border-0 border-r border-neutral-300;
+		@apply bg-neutral-200 text-neutral-700 font-medium cursor-pointer;
+		@apply hover:bg-neutral-300 transition-colors duration-150;
+	}
+	:global(.dark) .file-input {
+		@apply bg-neutral-800 text-neutral-200 border-neutral-600;
+	}
+	:global(.dark) .file-input::file-selector-button {
+		@apply bg-neutral-700 text-neutral-100 border-neutral-600;
+		@apply hover:bg-neutral-600;
 	}
 
 	#writeup {
