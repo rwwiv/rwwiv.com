@@ -169,11 +169,13 @@
 		transition:fade={{ duration: 200 }}
 		on:click={handleBackdropClick}
 	>
-		<button class="close-button" on:click={handleClose} aria-label="Close modal">
+		<button class="close-button" on:click|stopPropagation={handleClose} aria-label="Close modal">
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 				<path d="M6 18L18 6M6 6l12 12" />
 			</svg>
 		</button>
+
+		<div class="counter desktop">{currentIndex + 1} / {images.length}</div>
 
 		<button class="nav-button prev" class:hidden={!hasPrev} on:click={prev} aria-label="Previous image">
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -181,11 +183,13 @@
 			</svg>
 		</button>
 
+		<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
 		<div
 			class="carousel-container"
 			on:touchstart={handleTouchStart}
 			on:touchmove={handleTouchMove}
 			on:touchend={handleTouchEnd}
+			on:click={handleBackdropClick}
 		>
 			<div
 				class="carousel-track"
@@ -194,10 +198,13 @@
 				style:transform="translateX(calc(-100vw + {trackOffset}px))"
 			>
 				<!-- Previous slide -->
-				<div class="carousel-slide">
+				<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
+				<div class="carousel-slide" on:click={handleClose}>
 					{#if prevImage}
+						<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
 						<div
 							class="image-container"
+							on:click|stopPropagation
 							style:--img-width="{prevImage.width}px"
 							style:--img-height="{prevImage.height}px"
 							style:aspect-ratio={prevImage.width && prevImage.height
@@ -222,10 +229,13 @@
 				</div>
 
 				<!-- Current slide -->
-				<div class="carousel-slide current">
+				<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
+				<div class="carousel-slide current" on:click={handleClose}>
 					{#key currentIndex}
+						<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
 						<div
 							class="image-container"
+							on:click|stopPropagation
 							style:--img-width="{currentImage.width}px"
 							style:--img-height="{currentImage.height}px"
 							style:aspect-ratio={currentImage.width && currentImage.height
@@ -258,10 +268,13 @@
 				</div>
 
 				<!-- Next slide -->
-				<div class="carousel-slide">
+				<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
+				<div class="carousel-slide" on:click={handleClose}>
 					{#if nextImage}
+						<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
 						<div
 							class="image-container"
+							on:click|stopPropagation
 							style:--img-width="{nextImage.width}px"
 							style:--img-height="{nextImage.height}px"
 							style:aspect-ratio={nextImage.width && nextImage.height
@@ -431,6 +444,17 @@
 		padding: 8px;
 		opacity: 0.7;
 		transition: opacity 0.2s ease;
+		z-index: 20;
+	}
+
+	.counter.desktop {
+		position: fixed;
+		bottom: 1rem;
+		left: 50%;
+		transform: translateX(-50%);
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 14px;
+		font-variant-numeric: tabular-nums;
 		z-index: 10;
 	}
 
@@ -519,6 +543,10 @@
 	}
 
 	@media (max-width: 640px) {
+		.counter.desktop {
+			display: none;
+		}
+
 		.carousel-slide {
 			padding: 1rem;
 			padding-bottom: 5rem;
