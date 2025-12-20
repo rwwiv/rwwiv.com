@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from "svelte";
 	import { fade } from "svelte/transition";
 
-	export let images: Array<{ src: string; alt: string }> = [];
+	export let images: Array<{ src: string; alt: string; thumb?: string }> = [];
 	export let currentIndex = 0;
 	export let open = false;
 
@@ -74,7 +74,15 @@
 
 			<div class="image-wrapper">
 				{#key currentIndex}
-					<img src={currentImage.src} alt={currentImage.alt} on:load={() => (loading = false)} />
+					{#if loading && currentImage.thumb}
+						<img class="thumb" src={currentImage.thumb} alt={currentImage.alt} />
+					{/if}
+					<img
+						class:loading
+						src={currentImage.src}
+						alt={currentImage.alt}
+						on:load={() => (loading = false)}
+					/>
 				{/key}
 				{#if loading}
 					<div class="loading-overlay" transition:fade>
@@ -131,6 +139,19 @@
 		object-fit: contain;
 		border-radius: 2px;
 		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+	}
+
+	.modal-content img.thumb {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		filter: blur(4px);
+		transform: scale(1.02); /* hide blur edges */
+	}
+
+	.modal-content img.loading {
+		opacity: 0;
 	}
 
 	.loading-overlay {

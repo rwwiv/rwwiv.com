@@ -191,8 +191,9 @@
 	let modalOpen = false;
 	let modalIndex = 0;
 
-	// All images prepared for modal (full resolution)
+	// All images prepared for modal (thumbnail + full resolution)
 	const modalImages = allImages.map((img) => ({
+		thumb: img.src,
 		src: img.fullSrc,
 		alt: img.alt,
 	}));
