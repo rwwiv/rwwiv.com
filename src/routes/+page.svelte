@@ -180,7 +180,7 @@
 	// Default to smallest to avoid layout flash on load
 	let innerWidth = 0;
 
-	$: imagesPerStrip = innerWidth > 1400 ? 8 : innerWidth > 1000 ? 6 : innerWidth > 700 ? 4 : 3;
+	$: imagesPerStrip = innerWidth > 1400 ? 8 : innerWidth > 1000 ? 6 : 4;
 
 	$: strips = Array.from(
 		{ length: Math.ceil(allImages.length / imagesPerStrip) },
@@ -253,19 +253,21 @@
 	@media (max-width: 768px) {
 		.strips-container {
 			gap: 3rem;
-			padding: 1rem;
-			transform: scale(0.99);
-			transform-origin: center center;
+			padding: 0.5rem;
 		}
 
 		.editing-table {
-			padding: 0.5rem;
+			padding: 0.5rem 0.25rem;
 		}
 	}
 
 	@media (max-width: 480px) {
+		.editing-table {
+			padding: 0.5rem 0;
+		}
+
 		.strips-container {
-			transform: scale(0.9);
+			padding: 0.25rem;
 		}
 	}
 </style>
