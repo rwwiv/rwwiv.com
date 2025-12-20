@@ -95,7 +95,8 @@
 			>
 				{#key currentIndex}
 					<img
-						class:hidden={loading}
+						class="full"
+						class:loaded={!loading}
 						src={currentImage.src}
 						alt={currentImage.alt}
 						width={currentImage.width}
@@ -163,8 +164,12 @@
 		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 	}
 
-	.modal-content img.hidden {
+	.modal-content img.full {
 		visibility: hidden;
+	}
+
+	.modal-content img.full.loaded {
+		visibility: visible;
 	}
 
 	.modal-content img.thumb {
