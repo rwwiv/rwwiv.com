@@ -68,71 +68,71 @@
 	// @ts-ignore
 	import thumb32 from "$lib/assets/_XT39887.jpg?w=300";
 
-	// Import full resolution for modal preview
+	// Import full resolution with metadata for modal preview
 	// @ts-ignore
-	import full01 from "$lib/assets/_DSF6125.jpg";
+	import full01 from "$lib/assets/_DSF6125.jpg?as=meta";
 	// @ts-ignore
-	import full02 from "$lib/assets/_DSF6147.jpg";
+	import full02 from "$lib/assets/_DSF6147.jpg?as=meta";
 	// @ts-ignore
-	import full03 from "$lib/assets/_MTH7383.jpg";
+	import full03 from "$lib/assets/_MTH7383.jpg?as=meta";
 	// @ts-ignore
-	import full04 from "$lib/assets/_MTH7513_1.jpg";
+	import full04 from "$lib/assets/_MTH7513_1.jpg?as=meta";
 	// @ts-ignore
-	import full05 from "$lib/assets/_MTH7639.jpg";
+	import full05 from "$lib/assets/_MTH7639.jpg?as=meta";
 	// @ts-ignore
-	import full06 from "$lib/assets/_XT30112.jpg";
+	import full06 from "$lib/assets/_XT30112.jpg?as=meta";
 	// @ts-ignore
-	import full07 from "$lib/assets/_XT30374.jpg";
+	import full07 from "$lib/assets/_XT30374.jpg?as=meta";
 	// @ts-ignore
-	import full08 from "$lib/assets/_XT30469_1.jpg";
+	import full08 from "$lib/assets/_XT30469_1.jpg?as=meta";
 	// @ts-ignore
-	import full09 from "$lib/assets/_XT31495_1.jpg";
+	import full09 from "$lib/assets/_XT31495_1.jpg?as=meta";
 	// @ts-ignore
-	import full10 from "$lib/assets/_XT31619_1.jpg";
+	import full10 from "$lib/assets/_XT31619_1.jpg?as=meta";
 	// @ts-ignore
-	import full11 from "$lib/assets/_XT31726.jpg";
+	import full11 from "$lib/assets/_XT31726.jpg?as=meta";
 	// @ts-ignore
-	import full12 from "$lib/assets/_XT31746.jpg";
+	import full12 from "$lib/assets/_XT31746.jpg?as=meta";
 	// @ts-ignore
-	import full13 from "$lib/assets/_XT32284.jpg";
+	import full13 from "$lib/assets/_XT32284.jpg?as=meta";
 	// @ts-ignore
-	import full14 from "$lib/assets/_XT33429.jpg";
+	import full14 from "$lib/assets/_XT33429.jpg?as=meta";
 	// @ts-ignore
-	import full15 from "$lib/assets/_XT33483.jpg";
+	import full15 from "$lib/assets/_XT33483.jpg?as=meta";
 	// @ts-ignore
-	import full16 from "$lib/assets/_XT33875.jpg";
+	import full16 from "$lib/assets/_XT33875.jpg?as=meta";
 	// @ts-ignore
-	import full17 from "$lib/assets/_XT34709.jpg";
+	import full17 from "$lib/assets/_XT34709.jpg?as=meta";
 	// @ts-ignore
-	import full18 from "$lib/assets/_XT34713_1.jpg";
+	import full18 from "$lib/assets/_XT34713_1.jpg?as=meta";
 	// @ts-ignore
-	import full19 from "$lib/assets/_XT34721.jpg";
+	import full19 from "$lib/assets/_XT34721.jpg?as=meta";
 	// @ts-ignore
-	import full20 from "$lib/assets/_XT35173.jpg";
+	import full20 from "$lib/assets/_XT35173.jpg?as=meta";
 	// @ts-ignore
-	import full21 from "$lib/assets/_XT35265_1.jpg";
+	import full21 from "$lib/assets/_XT35265_1.jpg?as=meta";
 	// @ts-ignore
-	import full22 from "$lib/assets/_XT35380.jpg";
+	import full22 from "$lib/assets/_XT35380.jpg?as=meta";
 	// @ts-ignore
-	import full23 from "$lib/assets/_XT35386.jpg";
+	import full23 from "$lib/assets/_XT35386.jpg?as=meta";
 	// @ts-ignore
-	import full24 from "$lib/assets/_XT35563.jpg";
+	import full24 from "$lib/assets/_XT35563.jpg?as=meta";
 	// @ts-ignore
-	import full25 from "$lib/assets/_XT37908_2.jpg";
+	import full25 from "$lib/assets/_XT37908_2.jpg?as=meta";
 	// @ts-ignore
-	import full26 from "$lib/assets/_XT37919_1.jpg";
+	import full26 from "$lib/assets/_XT37919_1.jpg?as=meta";
 	// @ts-ignore
-	import full27 from "$lib/assets/_XT37993.jpg";
+	import full27 from "$lib/assets/_XT37993.jpg?as=meta";
 	// @ts-ignore
-	import full28 from "$lib/assets/_XT38716_1.jpg";
+	import full28 from "$lib/assets/_XT38716_1.jpg?as=meta";
 	// @ts-ignore
-	import full29 from "$lib/assets/_XT39365.jpg";
+	import full29 from "$lib/assets/_XT39365.jpg?as=meta";
 	// @ts-ignore
-	import full30 from "$lib/assets/_XT39772_3.jpg";
+	import full30 from "$lib/assets/_XT39772_3.jpg?as=meta";
 	// @ts-ignore
-	import full31 from "$lib/assets/_XT39877_1.jpg";
+	import full31 from "$lib/assets/_XT39877_1.jpg?as=meta";
 	// @ts-ignore
-	import full32 from "$lib/assets/_XT39887.jpg";
+	import full32 from "$lib/assets/_XT39887.jpg?as=meta";
 
 	// All images in one array
 	const allImages = [
@@ -191,10 +191,12 @@
 	let modalOpen = false;
 	let modalIndex = 0;
 
-	// All images prepared for modal (thumbnail + full resolution)
+	// All images prepared for modal (thumbnail + full resolution with dimensions)
 	const modalImages = allImages.map((img) => ({
 		thumb: img.src,
-		src: img.fullSrc,
+		src: img.fullSrc.src,
+		width: img.fullSrc.width,
+		height: img.fullSrc.height,
 		alt: img.alt,
 	}));
 

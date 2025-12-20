@@ -2,7 +2,13 @@
 	import { createEventDispatcher } from "svelte";
 	import { fade } from "svelte/transition";
 
-	export let images: Array<{ src: string; alt: string; thumb?: string }> = [];
+	export let images: Array<{
+		src: string;
+		alt: string;
+		thumb?: string;
+		width?: number;
+		height?: number;
+	}> = [];
 	export let currentIndex = 0;
 	export let open = false;
 
@@ -72,13 +78,22 @@
 				</button>
 			{/if}
 
-			<div class="image-wrapper">
+			<div
+				class="image-wrapper"
+				style:--img-width="{currentImage.width}px"
+				style:--img-height="{currentImage.height}px"
+				style:aspect-ratio={currentImage.width && currentImage.height
+					? `${currentImage.width} / ${currentImage.height}`
+					: undefined}
+			>
 				{#key currentIndex}
 					<img
 						class="full"
 						class:loaded={!loading}
 						src={currentImage.src}
 						alt={currentImage.alt}
+						width={currentImage.width}
+						height={currentImage.height}
 						on:load={() => (loading = false)}
 					/>
 					{#if loading && currentImage.thumb}
@@ -128,8 +143,8 @@
 
 	.image-wrapper {
 		position: relative;
-		min-width: 200px;
-		min-height: 150px;
+		max-width: min(var(--img-width, 100%), 90vw);
+		max-height: 80vh;
 	}
 
 	.modal-content img {
