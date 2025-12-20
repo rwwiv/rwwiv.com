@@ -16,19 +16,23 @@
 
 	let loading = true;
 	let showOverlay = true;
+	let showThumb = true;
 
 	$: currentImage = images[currentIndex];
 
 	function handleImageLoad() {
 		loading = false;
-		// Delay hiding overlay so it fades out after image is shown
-		setTimeout(() => (showOverlay = false), 50);
+		// Delay hiding thumb/overlay so full image fade-in completes first
+		setTimeout(() => {
+			showThumb = false;
+			showOverlay = false;
+		}, 250);
 	}
 	$: hasPrev = currentIndex > 0;
 	$: hasNext = currentIndex < images.length - 1;
 
 	// Reset loading state when image changes
-	$: currentIndex, ((loading = true), (showOverlay = true));
+	$: currentIndex, ((loading = true), (showOverlay = true), (showThumb = true));
 
 	// Prevent body scroll when modal is open
 	$: if (typeof document !== "undefined") {
@@ -103,8 +107,8 @@
 						height={currentImage.height}
 						on:load={handleImageLoad}
 					/>
-					{#if loading && currentImage.thumb}
-						<img class="thumb" src={currentImage.thumb} alt={currentImage.alt} />
+					{#if showThumb && currentImage.thumb}
+						<img class="thumb" src={currentImage.thumb} alt={currentImage.alt} transition:fade={{ duration: 200 }} />
 					{/if}
 					{#if showOverlay}
 						<div class="loading-overlay" transition:fade>
