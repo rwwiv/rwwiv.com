@@ -88,8 +88,6 @@
 			>
 				{#key currentIndex}
 					<img
-						class="full"
-						class:loaded={!loading}
 						src={currentImage.src}
 						alt={currentImage.alt}
 						width={currentImage.width}
@@ -98,6 +96,8 @@
 					/>
 					{#if loading && currentImage.thumb}
 						<img class="thumb" src={currentImage.thumb} alt={currentImage.alt} />
+					{/if}
+					{#if loading}
 						<div class="loading-overlay" transition:fade>
 							<div class="loading-dots">
 								<div class="dot"></div>
@@ -161,14 +161,6 @@
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
-	}
-
-	.modal-content img.full {
-		visibility: hidden;
-	}
-
-	.modal-content img.full.loaded {
-		visibility: visible;
 	}
 
 	.loading-overlay {
