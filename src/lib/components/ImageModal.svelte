@@ -165,11 +165,12 @@
 	}
 
 	.modal-content img.full {
-		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.2s ease;
 	}
 
 	.modal-content img.full.loaded {
-		visibility: visible;
+		opacity: 1;
 	}
 
 	.modal-content img.thumb {
