@@ -15,13 +15,20 @@
 	const dispatch = createEventDispatcher<{ close: void }>();
 
 	let loading = true;
+	let showOverlay = true;
 
 	$: currentImage = images[currentIndex];
+
+	function handleImageLoad() {
+		loading = false;
+		// Delay hiding overlay so it fades out after image is shown
+		setTimeout(() => (showOverlay = false), 50);
+	}
 	$: hasPrev = currentIndex > 0;
 	$: hasNext = currentIndex < images.length - 1;
 
 	// Reset loading state when image changes
-	$: currentIndex, (loading = true);
+	$: currentIndex, ((loading = true), (showOverlay = true));
 
 	// Prevent body scroll when modal is open
 	$: if (typeof document !== "undefined") {
@@ -88,16 +95,17 @@
 			>
 				{#key currentIndex}
 					<img
+						class:hidden={loading}
 						src={currentImage.src}
 						alt={currentImage.alt}
 						width={currentImage.width}
 						height={currentImage.height}
-						on:load={() => (loading = false)}
+						on:load={handleImageLoad}
 					/>
 					{#if loading && currentImage.thumb}
 						<img class="thumb" src={currentImage.thumb} alt={currentImage.alt} />
 					{/if}
-					{#if loading}
+					{#if showOverlay}
 						<div class="loading-overlay" transition:fade>
 							<div class="loading-dots">
 								<div class="dot"></div>
@@ -153,6 +161,10 @@
 		object-fit: contain;
 		border-radius: 2px;
 		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+	}
+
+	.modal-content img.hidden {
+		visibility: hidden;
 	}
 
 	.modal-content img.thumb {
