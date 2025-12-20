@@ -13,7 +13,7 @@
 	</div>
 
 	<div class="flex space-x-2 text-sm mt-2">
-		<div>&copy; 2023 William Wernert</div>
+		<div>&copy; 2025 William Wernert</div>
 	</div>
 </div>
 
