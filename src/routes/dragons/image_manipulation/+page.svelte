@@ -3,8 +3,7 @@
 	import Code from "$lib/components/Code.svelte";
 	import InlineCode from "$lib/components/InlineCode.svelte";
 	import MoreDivider from "$lib/components/MoreDivider.svelte";
-	// @ts-ignore
-	import Slider from "@bulatdashiev/svelte-slider";
+	import Slider from "$lib/components/Slider.svelte";
 	import { tick } from "svelte";
 	import { fade } from "svelte/transition";
 
@@ -29,6 +28,43 @@
 	let blurStrength = [10];
 	let pixelSize = [10];
 
+	// Chain mode state
+	let chainMode = false;
+	type Transform = {
+		type: string;
+		blur_strength?: number;
+		pixel_size?: number;
+	};
+	let chainTransforms: Transform[] = [];
+	let newTransformType = "grayscale";
+	let newBlurStrength = [10];
+	let newPixelSize = [10];
+
+	function addTransform() {
+		const transform: Transform = { type: newTransformType };
+		if (newTransformType === "blur") {
+			transform.blur_strength = newBlurStrength[0];
+		} else if (newTransformType === "pixelate") {
+			transform.pixel_size = newPixelSize[0];
+		}
+		chainTransforms = [...chainTransforms, transform];
+	}
+
+	function removeTransform(index: number) {
+		chainTransforms = chainTransforms.filter((_, i) => i !== index);
+	}
+
+	function moveTransform(index: number, direction: "up" | "down") {
+		const newIndex = direction === "up" ? index - 1 : index + 1;
+		if (newIndex < 0 || newIndex >= chainTransforms.length) return;
+		const newTransforms = [...chainTransforms];
+		[newTransforms[index], newTransforms[newIndex]] = [
+			newTransforms[newIndex],
+			newTransforms[index],
+		];
+		chainTransforms = newTransforms;
+	}
+
 	async function handleSubmit() {
 		if (image) {
 			processError = false;
@@ -38,7 +74,15 @@
 			const fData = new FormData(form);
 			fData.set("image", image);
 
-			const gRes = await fetch(`${env.PUBLIC_API_URL}/api/image/${action}`, {
+			let endpoint: string;
+			if (chainMode) {
+				endpoint = `${env.PUBLIC_API_URL}/api/image/chain`;
+				fData.set("transforms", JSON.stringify(chainTransforms));
+			} else {
+				endpoint = `${env.PUBLIC_API_URL}/api/image/${action}`;
+			}
+
+			const gRes = await fetch(endpoint, {
 				method: "POST",
 				body: fData,
 			});
@@ -58,6 +102,7 @@
 		image = null;
 		showPreview = false;
 		processError = false;
+		chainTransforms = [];
 	}
 
 	function setPreviewSrc(img: Blob) {
@@ -168,6 +213,51 @@ w.Write(outputBuf.Bytes())`;
 }
 
 setPreviewSrc(image);`;
+
+	const chainRequestCode = `// Build the transforms array
+const transforms = [
+  { type: "blur", blur_strength: 5 },
+  { type: "grayscale" },
+  { type: "pixelate", pixel_size: 10 }
+];
+
+const fData = new FormData(form);
+fData.set("image", image);
+fData.set("transforms", JSON.stringify(transforms));
+
+const gRes = await fetch(\`\${API_URL}/api/image/chain\`, {
+  method: "POST",
+  body: fData,
+});`;
+
+	const chainGoCode = `// Parse the transforms JSON from the form
+transformsJSON := r.PostFormValue("transforms")
+var specs []TransformSpec
+if err := json.Unmarshal([]byte(transformsJSON), &specs); err != nil {
+  w.WriteHeader(http.StatusBadRequest)
+  return
+}
+
+// Apply each transform in order using the registry
+currentImg := img
+for _, spec := range specs {
+  constructor, ok := transform.Registry[spec.Type]
+  if !ok {
+    w.WriteHeader(http.StatusBadRequest)
+    return
+  }
+
+  t, err := constructor(spec.Params)
+  if err != nil {
+    w.WriteHeader(http.StatusBadRequest)
+    return
+  }
+
+  currentImg, err = t.Apply(currentImg)
+  if err != nil {
+    panic(err)
+  }
+}`;
 </script>
 
 <svelte:head>
@@ -217,58 +307,225 @@ setPreviewSrc(image);`;
 				<div class="text-red-700 dark:text-red-400">Error processing image, try again.</div>
 			{/if}
 
+			<!-- Mode Toggle -->
+			<div class="flex rounded border border-neutral-300 dark:border-neutral-600 overflow-hidden">
+				<button
+					type="button"
+					on:click={() => (chainMode = false)}
+					class="px-4 py-2 text-sm font-medium transition-colors {!chainMode
+						? 'bg-neutral-700 text-white dark:bg-neutral-200 dark:text-neutral-900'
+						: 'bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700'}"
+				>
+					Single
+				</button>
+				<button
+					type="button"
+					on:click={() => (chainMode = true)}
+					class="px-4 py-2 text-sm font-medium transition-colors {chainMode
+						? 'bg-neutral-700 text-white dark:bg-neutral-200 dark:text-neutral-900'
+						: 'bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700'}"
+				>
+					Chain
+				</button>
+			</div>
+
 			<form
 				bind:this={form}
 				on:submit|preventDefault={handleSubmit}
-				class="flex flex-col justify-center space-y-6 w-[250px] max-w-[250px]"
+				class="flex flex-col justify-center space-y-6 w-[300px] max-w-[300px]"
 			>
 				<input hidden name="content_type" bind:value={contentType} />
-				<div>
-					<label
-						for="formAction"
-						class="block mb-2 text-sm font-medium text-neutral-900 dark:text-neutral-100"
-					>
-						Select an action
-					</label>
-					<select
-						id="formAction"
-						name="action"
-						bind:value={action}
-						class="bg-white border border-neutral-200 text-neutral-900 text-base rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-neutral-700 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-neutral-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 cursor-pointer"
-					>
-						{#each Object.entries(actions) as [value, name]}
-							<option {value}>{name}</option>
-						{/each}
-					</select>
-				</div>
-				{#if action == "blur"}
+
+				{#if !chainMode}
+					<!-- Single Action Mode -->
 					<div>
 						<label
-							for="blurStrength"
-							class="block mb-1 text-sm font-medium text-neutral-900 dark:text-neutral-100"
+							for="formAction"
+							class="block mb-2 text-sm font-medium text-neutral-900 dark:text-neutral-100"
 						>
-							Blur strength: {blurStrength[0]}
+							Select an action
 						</label>
-						<span id="blurStrength">
-							<Slider name={["blur_strength"]} bind:value={blurStrength} min={0} max={100} />
-						</span>
+						<select
+							id="formAction"
+							name="action"
+							bind:value={action}
+							class="bg-white border border-neutral-200 text-neutral-900 text-base rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-neutral-700 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-neutral-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 cursor-pointer"
+						>
+							{#each Object.entries(actions) as [value, name]}
+								<option {value}>{name}</option>
+							{/each}
+						</select>
 					</div>
-				{:else if action == "pixelate"}
-					<div>
-						<label
-							for="pixelSize"
-							class="block mb-1 text-sm font-medium text-neutral-900 dark:text-neutral-100"
+					{#if action == "blur"}
+						<div>
+							<label
+								for="blurStrength"
+								class="block mb-1 text-sm font-medium text-neutral-900 dark:text-neutral-100"
+							>
+								Blur strength: {blurStrength[0]}
+							</label>
+							<span id="blurStrength">
+								<Slider name={["blur_strength"]} bind:value={blurStrength} min={0} max={100} />
+							</span>
+						</div>
+					{:else if action == "pixelate"}
+						<div>
+							<label
+								for="pixelSize"
+								class="block mb-1 text-sm font-medium text-neutral-900 dark:text-neutral-100"
+							>
+								Pixel size: {pixelSize[0]}
+							</label>
+							<span id="pixelSize">
+								<Slider name={["pixel_size"]} bind:value={pixelSize} min={1} max={50} />
+							</span>
+						</div>
+					{/if}
+				{:else}
+					<!-- Chain Mode -->
+					<div class="space-y-4">
+						<p class="text-sm text-neutral-600 dark:text-neutral-400">
+							Build a chain of transforms to apply in order.
+						</p>
+
+						<!-- Transform List -->
+						{#if chainTransforms.length > 0}
+							<div class="space-y-2">
+								{#each chainTransforms as transform, i}
+									<div
+										class="flex items-center justify-between p-2 bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700"
+									>
+										<div class="flex items-center space-x-2">
+											<span class="text-xs text-neutral-500 dark:text-neutral-400 w-4"
+												>{i + 1}.</span
+											>
+											<span class="text-sm font-medium">{actions[transform.type]}</span>
+											{#if transform.blur_strength !== undefined}
+												<span class="text-xs text-neutral-500 dark:text-neutral-400"
+													>({transform.blur_strength})</span
+												>
+											{/if}
+											{#if transform.pixel_size !== undefined}
+												<span class="text-xs text-neutral-500 dark:text-neutral-400"
+													>({transform.pixel_size}px)</span
+												>
+											{/if}
+										</div>
+										<div class="flex items-center space-x-1">
+											<button
+												type="button"
+												on:click={() => moveTransform(i, "up")}
+												disabled={i === 0}
+												class="p-1 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 disabled:opacity-30 disabled:cursor-not-allowed"
+												title="Move up"
+											>
+												<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+													<path
+														stroke-linecap="round"
+														stroke-linejoin="round"
+														stroke-width="2"
+														d="M5 15l7-7 7 7"
+													/>
+												</svg>
+											</button>
+											<button
+												type="button"
+												on:click={() => moveTransform(i, "down")}
+												disabled={i === chainTransforms.length - 1}
+												class="p-1 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 disabled:opacity-30 disabled:cursor-not-allowed"
+												title="Move down"
+											>
+												<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+													<path
+														stroke-linecap="round"
+														stroke-linejoin="round"
+														stroke-width="2"
+														d="M19 9l-7 7-7-7"
+													/>
+												</svg>
+											</button>
+											<button
+												type="button"
+												on:click={() => removeTransform(i)}
+												class="p-1 text-red-500 hover:text-red-700 dark:hover:text-red-400"
+												title="Remove"
+											>
+												<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+													<path
+														stroke-linecap="round"
+														stroke-linejoin="round"
+														stroke-width="2"
+														d="M6 18L18 6M6 6l12 12"
+													/>
+												</svg>
+											</button>
+										</div>
+									</div>
+								{/each}
+							</div>
+						{/if}
+
+						<!-- Add Transform -->
+						<div
+							class="p-3 border border-dashed border-neutral-300 dark:border-neutral-600 rounded space-y-3"
 						>
-							Pixel size: {pixelSize[0]}
-						</label>
-						<span id="pixelSize">
-							<Slider name={["pixel_size"]} bind:value={pixelSize} min={1} max={50} />
-						</span>
+							<div>
+								<label
+									for="newTransformType"
+									class="block mb-1 text-xs font-medium text-neutral-700 dark:text-neutral-300"
+								>
+									Transform type
+								</label>
+								<select
+									id="newTransformType"
+									bind:value={newTransformType}
+									class="bg-white border border-neutral-200 text-neutral-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-neutral-700 dark:border-neutral-600 dark:text-neutral-100 cursor-pointer"
+								>
+									{#each Object.entries(actions) as [value, name]}
+										<option {value}>{name}</option>
+									{/each}
+								</select>
+							</div>
+							{#if newTransformType === "blur"}
+								<div>
+									<label
+										for="newBlurStrength"
+										class="block mb-1 text-xs font-medium text-neutral-700 dark:text-neutral-300"
+									>
+										Blur strength: {newBlurStrength[0]}
+									</label>
+									<span id="newBlurStrength">
+										<Slider bind:value={newBlurStrength} min={0} max={100} />
+									</span>
+								</div>
+							{:else if newTransformType === "pixelate"}
+								<div>
+									<label
+										for="newPixelSize"
+										class="block mb-1 text-xs font-medium text-neutral-700 dark:text-neutral-300"
+									>
+										Pixel size: {newPixelSize[0]}
+									</label>
+									<span id="newPixelSize">
+										<Slider bind:value={newPixelSize} min={1} max={50} />
+									</span>
+								</div>
+							{/if}
+							<button
+								type="button"
+								on:click={addTransform}
+								class="w-full py-1.5 px-3 text-sm font-medium text-neutral-700 bg-neutral-200 rounded hover:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-600 transition-colors"
+							>
+								+ Add Transform
+							</button>
+						</div>
 					</div>
 				{/if}
+
 				<button
 					type="submit"
-					class="py-2 px-4 text-base font-medium text-neutral-800 focus:outline-none bg-neutral-50 rounded border border-neutral-200 hover:bg-neutral-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-neutral-200 dark:focus:ring-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 dark:border-neutral-600 dark:hover:text-neutral-100 dark:hover:bg-neutral-700"
+					disabled={chainMode && chainTransforms.length === 0}
+					class="py-2 px-4 text-base font-medium text-neutral-800 focus:outline-none bg-neutral-50 rounded border border-neutral-200 hover:bg-neutral-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-neutral-200 dark:focus:ring-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 dark:border-neutral-600 dark:hover:text-neutral-100 dark:hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed"
 				>
 					Submit
 				</button>
@@ -354,15 +611,6 @@ setPreviewSrc(image);`;
 					called. We then re-encode the image to a buffer and write it to the response:
 				</p>
 				<Code language="go" code={goImageResponseCode} />
-				<div class="flex space-x-1">
-					<sub class="mt-2.5">*</sub>
-					<sub class="text-sm tracking-wide">
-						A possible improvement to be made here would be to join the functions into a single
-						image processing function and take the action as another field in the form. This would
-						greatly reduce code repetition, at the cost of an increasingly long and complicated
-						switch statement.
-					</sub>
-				</div>
 			</div>
 			<div class="flex flex-col space-y-2">
 				<p>
@@ -371,6 +619,36 @@ setPreviewSrc(image);`;
 				</p>
 				<Code language="ts" code={responseToPreviewCode} />
 			</div>
+			<hr
+				class="w-[150px] h-[1px] rounded-full border-t-0 bg-neutral-900 dark:bg-neutral-100 opacity-100 dark:opacity-50 self-center"
+			/>
+			<h1 class="font-bold italic">New for 2025!</h1>
+			<div class="space-y-6">
+				<p>
+					Rather than applying a single transform at a time and making multiple round trips to the
+					server, we now support chaining multiple transforms in a single request. This lets you
+					build a pipeline of operations that are applied in sequence.
+				</p>
+				<p>
+					On the client side, we build an array of transform objects and serialize it as JSON in the
+					form data:
+				</p>
+				<Code language="ts" code={chainRequestCode} />
+			</div>
+			<div class="flex flex-col space-y-2">
+				<p>
+					On the server, we parse the transforms array and apply each operation in order. A registry
+					maps transform types to their constructors, making it easy to add new transforms without
+					modifying the handler:
+				</p>
+				<Code language="go" code={chainGoCode} />
+			</div>
+			<!-- <div class="space-y-6"> -->
+			<!-- 	<p> -->
+			<!-- 		The chain endpoint reduces latency for complex edits and makes the API more flexible -->
+			<!-- 		&mdash; you can now blur, convert to grayscale, and pixelate all in one request! -->
+			<!-- 	</p> -->
+			<!-- </div> -->
 			<h1 class="self-center">Et voilà!</h1>
 			<sub class="self-center text-sm">
 				<a
