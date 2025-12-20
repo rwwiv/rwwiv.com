@@ -15,7 +15,7 @@
 		/>
 		<div
 			class="absolute top-0 left-0 h-full w-full bg-black bg-opacity-0 dark:bg-opacity-20 hover:dark:bg-opacity-0 transition-all duration-300"
-		/>
+		></div>
 	</div>
 	<div>
 		<div class="space-y-1">

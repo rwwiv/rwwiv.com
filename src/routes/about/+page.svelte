@@ -15,7 +15,7 @@
 				class="flex flex-col items-center justify-center  rounded-sm img-wrapper bg-neutral-800 dark:bg-neutral-100"
 			>
 				<img src={me} alt="Self portrait" class="mt-4 px-3" height="350px" width="350px" />
-				<div class="h-[75px] text-neutral-200 dark:text-neutral-900 p-3" />
+				<div class="h-[75px] text-neutral-200 dark:text-neutral-900 p-3"></div>
 			</div>
 			<div class="flex items-center space-x-1">
 				<svg

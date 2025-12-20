@@ -205,9 +205,9 @@ setPreviewSrc(image);`;
 						<div
 							class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center space-x-2"
 						>
-							<div class="rounded-full bg-white h-3 w-3 animate-[pulse_2s_infinite_200ms]" />
-							<div class="rounded-full bg-white h-3 w-3 animate-[pulse_2s_infinite_400ms]" />
-							<div class="rounded-full bg-white h-3 w-3 animate-[pulse_2s_infinite_600ms]" />
+							<div class="rounded-full bg-white h-3 w-3 animate-[pulse_2s_infinite_200ms]"></div>
+							<div class="rounded-full bg-white h-3 w-3 animate-[pulse_2s_infinite_400ms]"></div>
+							<div class="rounded-full bg-white h-3 w-3 animate-[pulse_2s_infinite_600ms]"></div>
 						</div>
 					</div>
 				{/if}

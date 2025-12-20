@@ -46,6 +46,7 @@
 		id="dark-mode-toggle"
 		on:click={toggleTheme}
 		on:keypress={toggleTheme}
+		aria-label="Toggle dark mode"
 		class="cursor-pointer focus:outline-none group"
 	>
 		<div
