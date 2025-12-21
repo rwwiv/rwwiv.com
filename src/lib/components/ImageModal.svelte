@@ -322,7 +322,7 @@
 	</div>
 {/if}
 
-<style lang="postcss">
+<style>
 	.modal-backdrop {
 		position: fixed;
 		inset: 0;

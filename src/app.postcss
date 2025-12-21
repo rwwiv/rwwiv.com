@@ -1,22 +1,29 @@
-/* Write your global styles here, in PostCSS syntax */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+/* Configure content sources */
+@source "./**/*.{html,js,svelte,ts}";
+
+/* Custom theme configuration */
+@theme {
+	--breakpoint-xxs: 360px;
+	--breakpoint-xs: 480px;
+	--breakpoint-3xl: 2200px;
+}
+
+/* Base styles */
 @layer base {
 	:root {
-		--page-bg: theme(colors.neutral.50);
+		--page-bg: var(--color-neutral-50);
 	}
 	:root.dark {
-		--page-bg: theme(colors.neutral.900);
+		--page-bg: var(--color-neutral-900);
 	}
 	body {
 		@apply bg-neutral-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200;
 	}
 }
 
-@layer utilities {
-	.pb-safe {
-		padding-bottom: env(safe-area-inset-bottom);
-	}
+/* Custom utilities */
+@utility pb-safe {
+	padding-bottom: env(safe-area-inset-bottom);
 }

@@ -234,7 +234,7 @@
 
 <ImageModal images={modalImages} currentIndex={modalIndex} open={modalOpen} on:close={handleClose} />
 
-<style lang="postcss">
+<style>
 	.editing-table {
 		display: flex;
 		align-items: center;

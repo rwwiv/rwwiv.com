@@ -111,6 +111,8 @@ hyprland.run()`;
 </div>
 
 <style lang="postcss">
+	@reference "#styles";
+
 	#writeup {
 		@apply font-serif;
 	}

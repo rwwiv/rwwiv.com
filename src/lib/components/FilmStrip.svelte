@@ -52,10 +52,12 @@
 </div>
 
 <style lang="postcss">
+	@reference "#styles";
+
 	.film-strip-wrapper {
 		--shadow-color: rgba(0, 0, 0, 0.3);
 		--shadow-color-hover: rgba(0, 0, 0, 0.4);
-		--hole-bg: theme(colors.neutral.200);
+		--hole-bg: var(--color-neutral-200);
 
 		transform: rotate(var(--tilt));
 		transition:
@@ -67,7 +69,7 @@
 	:global(.dark) .film-strip-wrapper {
 		--shadow-color: rgba(255, 255, 255, 0.06);
 		--shadow-color-hover: rgba(255, 255, 255, 0.1);
-		--hole-bg: theme(colors.neutral.800);
+		--hole-bg: var(--color-neutral-800);
 	}
 
 	.film-strip-wrapper:hover {

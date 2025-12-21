@@ -138,6 +138,8 @@ echo "host=$host\\nlocal_port=$local_port\\nremote_port=$remote_port" > "$metafi
 </div>
 
 <style lang="postcss">
+	@reference "#styles";
+
 	#writeup {
 		@apply font-serif;
 	}

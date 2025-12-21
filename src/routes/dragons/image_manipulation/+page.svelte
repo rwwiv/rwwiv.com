@@ -674,6 +674,8 @@ for _, spec := range specs {
 </div>
 
 <style lang="postcss">
+	@reference "#styles";
+
 	div {
 		--thumb-bg: #dadada;
 		--progress-bg: #6e6e6e;

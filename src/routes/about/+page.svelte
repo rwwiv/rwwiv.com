@@ -105,6 +105,8 @@
 </div>
 
 <style lang="postcss">
+	@reference "#styles";
+
 	h1 {
 		@apply text-4xl font-bold;
 	}

@@ -12,6 +12,8 @@
 </div>
 
 <style lang="postcss">
+	@reference "#styles";
+
 	#nav {
 		@apply flex flex-col items-center w-full pt-4;
 	}

@@ -18,6 +18,8 @@
 </div>
 
 <style lang="postcss">
+	@reference "#styles";
+
 	#bottom-nav a {
 		@apply hover:dark:text-neutral-400 hover:text-neutral-500 focus:underline focus:outline-none;
 	}
