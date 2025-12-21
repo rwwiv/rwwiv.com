@@ -9,7 +9,7 @@
 	import "../github.scss";
 
 	injectAnalytics({ mode: dev ? "development" : "production" });
-	injectSpeedInsights({ debug: dev });
+	injectSpeedInsights();
 </script>
 
 <div class="flex flex-col min-h-screen">
