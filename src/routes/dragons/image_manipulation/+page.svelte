@@ -657,16 +657,7 @@ for _, spec := range specs {
 					rel="noreferrer"
 					class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
 				>
-					Site source
-				</a>
-				and
-				<a
-					href="https://github.com/rwwiv/go-serverless"
-					target="_blank"
-					rel="noreferrer"
-					class="underline cursor-pointer hover:text-blue-700 dark:hover:text-blue-400 focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
-				>
-					Go source
+					Source on GitHub
 				</a>
 			</sub>
 		</div>
