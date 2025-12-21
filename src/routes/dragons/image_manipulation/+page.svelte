@@ -558,14 +558,15 @@ for _, spec := range specs {
 					<InlineCode code="&lcub;HOSTNAME&rcub;/api/image/&lcub;ACTION&rcub;" language="svelte" />.
 				</p>
 				<p>
-					This URL corresponds to a Go serverless function running on
+					This URL corresponds to a Go serverless function deployed alongside this site as part of
+					the same monorepo on
 					<a
 						class="focus:outline-none focus:dark:text-blue-300 focus:text-blue-700"
-						href="https://vercel.com/docs/concepts/functions/serverless-functions"
+						href="https://vercel.com/docs/functions/runtimes/go"
 						target="_blank"
 						rel="noreferrer">Vercel</a
-					>. That function processes the image in some way and builds a response with the processed
-					image; which we use to replace the in-memory file blob client-side.
+					>. That function processes the image and returns the result, which we use to replace the
+					in-memory file blob client-side.
 				</p>
 			</div>
 			<hr
