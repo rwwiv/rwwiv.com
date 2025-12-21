@@ -1,12 +1,15 @@
 <script>
+	import { dev } from "$app/environment";
 	import Footer from "$lib/components/Footer.svelte";
 	import Nav from "$lib/components/Nav.svelte";
+	import { injectAnalytics } from "@vercel/analytics/sveltekit";
 	import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
 	import "../app.postcss";
 	import "../github-dark.scss";
 	import "../github.scss";
 
-	injectSpeedInsights();
+	injectAnalytics({ mode: dev ? "development" : "production" });
+	injectSpeedInsights({ debug: dev });
 </script>
 
 <div class="flex flex-col min-h-screen">
