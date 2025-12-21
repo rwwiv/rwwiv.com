@@ -68,6 +68,18 @@
 							</span>
 						</p>
 					</li>
+					<li class="text-sm">
+						<p>
+							Getting way too familiar (again!) with bash as I transition to Linux &mdash;
+							for example, a Hyprland IPC library for reacting to compositor events, and SSH tunnel
+							management for remote development
+							<br />
+							<span class="flex space-x-1">
+								<sub>*</sub>
+								<sub>These are documented under Dragons!</sub>
+							</span>
+						</p>
+					</li>
 				</ul>
 			</div>
 			<div class="flex flex-col space-y-1">
@@ -75,7 +87,7 @@
 				<ul class="list-disc space-y-2 ml-3 text-sm">
 					<li>
 						<p>
-							Building a street photography portfolio with my Fujifilm X-T3
+							Building a street photography portfolio with my Fujifilm X-Pro3
 							<br />
 							<span class="flex space-x-1">
 								<sub>*</sub>
@@ -84,7 +96,7 @@
 						</p>
 					</li>
 					<li>
-						<p>Slowly &mdash; oh so slowly &mdash; learning film photography on a Canon AE-1</p>
+						<p>Slowly &mdash; oh so slowly &mdash; learning film photography on a Canon F-1</p>
 					</li>
 				</ul>
 			</div>

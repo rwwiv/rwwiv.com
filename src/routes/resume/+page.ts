@@ -18,6 +18,21 @@ interface VolunteerRole {
 	endYear?: Date;
 }
 
+const Grafana: Employment = {
+	jobTitle: "Software Engineer",
+	employerName: "Grafana Labs",
+	location: "Remote",
+	startDate: new Date(2023, 5),
+	tech: ["Go", "Jsonnet", "Kubernetes", "Flux"],
+	experience: [
+		`Built a Loki backend for the Grafana annotations API to enable the migration of alert state history from SQL annotations to Loki log streams, enabling faster and more powerful interactions with state data.`,
+		`Implemented the Prometheus remote write pipeline for Grafana-managed recording rules, centralizing data transformation within Grafana under a single scalable platform as part of an effort to unify the alerting experience across our cloud offering.`,
+		`Optimized performance for critical API paths by 10x to 100x, with uplift scaling nearly linearly based on the number of records being stored.`,
+		`Introduced new API patterns for Grafana alerting that reduced complexity by allowing for more natural ergonomics based around smaller units of work, while also enabling a better as-code story through integration with a new git-sync feature.`,
+		`As part of the on-call rotation for my team, maintained critical cloud services exceeding 99.99% uptime against a 99.95% SLA.`,
+	],
+};
+
 const LM: Employment = {
 	jobTitle: "Software Engineer",
 	employerName: "Lightmatter",
@@ -82,6 +97,7 @@ const RSI: Employment = {
 const projects = [
 	"Building a wifi-enabled plant moisture and light meter based on the ESP32-C3, written in Rust",
 	"Developing and maintaining a portfolio website at rwwiv.com (where you are now!), using Sveltekit",
+	"Maintaining a public dotfiles repo at github.com/rwwiv/.dotfiles-arch with custom tooling for an optimized developer experience under Arch Linux",
 	"See more under the Dragons link in the header",
 ];
 
@@ -89,33 +105,24 @@ const CFG: VolunteerRole = {
 	group: "Code For Greenville",
 	role: "Individual contributor",
 	startYear: new Date(2022, 1),
+	endYear: new Date(2024, 1),
 };
 
 const CAIM: VolunteerRole = {
 	group: "Caim",
 	role: "Software Engineer",
 	startYear: new Date(2023, 1),
+	endYear: new Date(2023, 11),
 };
 
 export const load = (() => {
 	return {
-		employments: [LM, SOS, RSI],
+		employments: [Grafana, LM, SOS, RSI],
 		education: {
 			degree: "BS in Computer Science",
 			university: "Augusta University",
 			graduationDate: new Date(2019, 4),
 		},
-		skills: [
-			{ name: "Python", level: 10 },
-			{ name: "JS / TS", level: 10 },
-			{ name: "Django", level: 9 },
-			{ name: "Vue.js", level: 8 },
-			{ name: "Go", level: 7 },
-			{ name: "Postgres", level: 6 },
-			{ name: "Java", level: 6 },
-			{ name: "Cypress", level: 6 },
-			{ name: "MySQL", level: 7 },
-		],
 		projects,
 		volunteerRoles: [CAIM, CFG],
 	};

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import EmploymentBlock from "$lib/components/EmploymentBlock.svelte";
-	import ExperienceDots from "$lib/components/ExperienceDots.svelte";
 	import ResumeBlock from "$lib/components/ResumeBlock.svelte";
 	import type { PageData } from "./$types";
 
@@ -18,15 +17,16 @@
 			<br />
 		-->
 		<div class="text-4xl font-semibold text-green-800 dark:text-green-200">William Wernert</div>
-		<div class="text-lg">Full Stack Engineer</div>
+		<div class="text-lg">Software Engineer</div>
 	</div>
 	<ResumeBlock title="Summary">
 		<div>
-			Experienced software engineer with a proven track record of delivering successful projects in
-			various technologies including Python (Flask, Django), Go, Vue.js, and Java (Spring Boot).
-			Specializes in developing and deploying web applications, micro-services, and machine
-			learning-based tools. Excited to bring my skills and experience to your software engineering
-			team.
+			Software engineer building scalable cloud-native services at Grafana Labs, developing and
+			operating alerting infrastructure serving millions of users. Experienced across the stack
+			from web applications to distributed systems, with current focus on Go, Kubernetes, and
+			infrastructure-as-code (Jsonnet, Flux, Crossplane). Deep familiarity with observability
+			tooling through dogfooding the Grafana stack (Mimir, Loki, Tempo). Excited to bring my
+			skills and experience to your software engineering team.
 		</div>
 	</ResumeBlock>
 	<ResumeBlock title="Work Experience">
@@ -73,32 +73,18 @@
 						<span class="font-semibold">{v.group}</span> - {v.role}
 					</div>
 					<div class="text-sm text-neutral-600 dark:text-neutral-300">
-						{v.startYear.toLocaleDateString("en-us", { year: "numeric" })}
-						-
-						{#if v.endYear}
-							{v.endYear.toLocaleDateString("en-us", { year: "numeric" })}
-						{:else}Present{/if}
+						{#if v.endYear && v.startYear.getFullYear() === v.endYear.getFullYear()}
+							{v.startYear.toLocaleDateString("en-us", { year: "numeric" })}
+						{:else}
+							{v.startYear.toLocaleDateString("en-us", { year: "numeric" })}
+							-
+							{#if v.endYear}
+								{v.endYear.toLocaleDateString("en-us", { year: "numeric" })}
+							{:else}Present{/if}
+						{/if}
 					</div>
 				</div>
 			{/each}
-		</div>
-	</ResumeBlock>
-	<ResumeBlock title="Languages &amp; Frameworks">
-		<div class="flex flex-col xs:flex-row">
-			<ul class="w-full xs:w-1/2 space-y-2">
-				{#each data.skills as skill, i}
-					{#if i % 2 == 0}
-						<ExperienceDots num={skill.level} name={skill.name} />
-					{/if}
-				{/each}
-			</ul>
-			<ul class="w-full xs:w-1/2 space-y-2">
-				{#each data.skills as skill, i}
-					{#if i % 2 != 0}
-						<ExperienceDots num={skill.level} name={skill.name} />
-					{/if}
-				{/each}
-			</ul>
 		</div>
 	</ResumeBlock>
 </div>
