@@ -17,18 +17,6 @@
 	return imgSet
 }`;
 
-	let screenshotCode = `# Detect monitor colorspace and convert if needed
-PRESET=$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .colorManagementPreset')
-
-case "$PRESET" in
-    dp3)
-        /usr/bin/grim "\${ARGS[@]}" - | magick png:- -set colorspace DisplayP3 -colorspace sRGB png:-
-        ;;
-    *)
-        /usr/bin/grim "\${ARGS[@]}" -
-        ;;
-esac`;
-
 	let hyprlandIpcCode = `@hyprland.on("monitoraddedv2")
 async def handle_monitor_hotplug(ctx: Hyprland, data: str) -> None:
     global wallpaper_task
@@ -63,12 +51,6 @@ tunnel 'grafana': started (pid 12345, localhost:3000 -> dev-vm:3000)`;
 			title="Image manipulation using serverless Go functions"
 			code={grayscaleCode}
 			language="go"
-		/>
-		<Dragon
-			link="/dragons/screenshot_tools"
-			title="grim wrapper for wide-gamut color space conversion"
-			code={screenshotCode}
-			language="bash"
 		/>
 		<Dragon
 			link="/dragons/hyprland_ipc"
